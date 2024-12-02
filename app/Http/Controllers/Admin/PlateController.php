@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Plate;
 use Illuminate\Http\Request;
 
 use function Ramsey\Uuid\v1;
@@ -20,7 +21,9 @@ class PlateController extends Controller
      */
     public function index()
     {
-        //
+        $plates = Plate::all();
+
+        return view('admin.plates.index', compact('plates'));
     }
 
     /**
@@ -42,9 +45,9 @@ class PlateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Plate $plate)
     {
-        //
+        return view('admin.plates.show', compact('plate'));
     }
 
     /**
