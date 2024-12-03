@@ -53,12 +53,7 @@ class PlateController extends Controller
     public function index()
     {
         $plates = Plate::all();
-        if(!isEmpty($plates)){
-            return view('admin.plates.index', compact('plates'));
-        }else{
-            $plate = new Plate();
-            return view('admin.plates.create', compact('plate'));
-        }
+        return view('admin.plates.index', compact('plates'));
     }
 
     /**
@@ -113,7 +108,7 @@ class PlateController extends Controller
      */
     public function update(StoreOrUpdatePlateRequest $request, Plate $plate)
     {
-        $data = $request()->validated();
+        $data = $request->validated();
 
         // If image value exist in request field
         if ($request->hasFile("image")){

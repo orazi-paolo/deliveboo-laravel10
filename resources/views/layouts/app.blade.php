@@ -28,10 +28,10 @@
                 <a class="navbar-brand turquoise fw-bold" href="{{ url('/') }}">
                     deliveboo
                 </a>
-                <a class="navbar-brand fs-6" href="{{ route('admin.plates.index') }}">
+                <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.index') }}">
                     Plates
                 </a>
-                <a class="navbar-brand fs-6" href="{{ route('admin.plates.create') }}">
+                <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.create') }}">
                     Create New
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
