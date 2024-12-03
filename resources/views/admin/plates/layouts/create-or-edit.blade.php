@@ -58,8 +58,8 @@
         </div>
         <div class="row mb-3">
             <div class="col-12 col-lg-6">
-                <input type="checkbox" name="visible" class="form-check-input"
-                    value="{{old('visible', $plate->visible)}}" id="visible">
+                <input type="checkbox" name="visible" class="form-check-input" value="1" id="visible" {{ old('visible',
+                    $plate->visible ?? false) ? 'checked' : '' }}>
                 <label for="visible" class="form-check-label">Visible</label>
                 @error('visible')
                 <small><i class="text-danger">{{$message}}</i></small>
