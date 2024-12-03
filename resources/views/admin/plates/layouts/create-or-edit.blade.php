@@ -33,7 +33,7 @@
                 <label for="ingredient_description" class="form-label">Ingredients Description</label>
                 <textarea class="form-control" name="ingredient_description" id="ingredient_description"
                     rows="3">{{old('ingredient_description', $plate->ingredient_description)}}</textarea>
-                @error('description')
+                @error('ingredient_description')
                 <small><i class="text-danger">{{$message}}</i></small>
                 @enderror
             </div>
@@ -43,7 +43,7 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" name="description" id="description"
                     rows="3">{{old('description', $plate->description)}}</textarea>
-                @error('ingredient_description')
+                @error('description')
                 <small><i class="text-danger">{{$message}}</i></small>
                 @enderror
             </div>

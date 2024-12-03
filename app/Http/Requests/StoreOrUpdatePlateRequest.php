@@ -12,10 +12,7 @@ class StoreOrUpdatePlateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-         if (Auth::check()) {
-            return true;
-        }
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -28,11 +25,11 @@ class StoreOrUpdatePlateRequest extends FormRequest
         return [
             'restaurant_id'=>['required', 'numeric', 'integer', 'exists:restaurants,id'],
             'image'=>['nullable', 'image', 'max:255'],
-            'name'=>['required', 'string', 'min:2', 'max:255', 'unique:plates,name'],
+            'name'=>['required', 'string', 'min:2', 'max:255'],
             'description'=>['required', 'string', 'min:20'],
             'ingredient_description'=>['required', 'string', 'min:20'],
-            'price'=>['required', 'numeric', 'decimal:2,2'],
-            'visible'=>['nullable', 'boolean'],
+            'price'=>['required', 'numeric', 'regex:/^\d{1,6}(\.\d{1,2})?$/'],
+            'visible'=>['boolean'],
         ];
     }
 }

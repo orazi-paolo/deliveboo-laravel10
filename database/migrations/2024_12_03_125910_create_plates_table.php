@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('plates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("restaurant_id")->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string("name")->nullable(false);
             $table->text("description")->nullable();
             $table->text("ingredient_description")->nullable();
             $table->decimal("price", 8, 2, true)->nullable(false);
-            $table->boolean("visible")->default(false)->nullable(false);
+            $table->boolean("visible")->default(false);
             $table->text("image")->nullable();
             $table->softDeletes();
             $table->timestamps();

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreOrUpdatePlateRequest;
 use App\Models\Plate;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-use function PHPUnit\Framework\isEmpty;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreOrUpdatePlateRequest;
 
 class PlateController extends Controller
 {
@@ -69,9 +69,9 @@ class PlateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrUpdatePlateRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
+        $data = $request->all();
 
         // If the file in image requst exist
         if($request->hasFile('image')){
@@ -106,9 +106,9 @@ class PlateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreOrUpdatePlateRequest $request, Plate $plate)
+    public function update(Request $request, Plate $plate)
     {
-        $data = $request->validated();
+        $data = $request->all();
 
         // If image value exist in request field
         if ($request->hasFile("image")){

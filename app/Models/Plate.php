@@ -16,7 +16,7 @@ class Plate extends Model
         'image',
         'name',
         'description',
-        'ingridient_description',
+        'ingredient_description',
         'price',
         'visible',
     ];
