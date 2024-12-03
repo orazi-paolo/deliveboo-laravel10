@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PlateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Plate resources
+Route::get("/plates", [PlateController::class, "index"])->name("api.plates.index");
+Route::get("/plates/{plate}", [PlateController::class, "show"])->name("api.plates.show");
