@@ -1,0 +1,18 @@
+// Variables
+@import 'variables';
+
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.logo {
+    height: 25px;
+}
+
+.turquoise {
+    color: $turquoise;
+}
+
+

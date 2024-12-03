@@ -26,6 +26,28 @@ img{
 }
 
 
+.dropdown-menu.turquoise {
+    background-color: #00cdbc;
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    color: white;
+    background-color: #009c99;
+}
+
+.nav-link.dropdown-toggle.turquoise {
+    color: #00cdbc;
+}
+
+.nav-link.dropdown-toggle.turquoise:hover {
+    color: #009c99;
+}
+
 @media (max-width: 768px) {
     .login-m {
         margin-top: 10px;
