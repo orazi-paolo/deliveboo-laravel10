@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreOrUpdatePlateRequest;
 use App\Models\Plate;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+use function PHPUnit\Framework\isEmpty;
 
 class PlateController extends Controller
 {
@@ -20,8 +23,12 @@ class PlateController extends Controller
     public function index()
     {
         $plates = Plate::all();
-
-        return view('admin.plates.index', compact('plates'));
+        if(!isEmpty($plates)){
+            return view('admin.plates.index', compact('plates'));
+        }else{
+            $plate = new Plate();
+            return view('admin.plates.create', compact('plate'));
+        }
     }
 
     /**
@@ -37,9 +44,22 @@ class PlateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreOrUpdatePlateRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        // If the file in image requst exist
+        if($request->hasFile('image')){
+            $filepath = Storage::disk('public')->put('image/plate',$request->image); // Save image in Storage public disk
+            $data['image'] = $filepath; // Rewrite the image value
+
+        }
+
+        $plate = Plate::create($data);
+
+        return redirect()->route("admin.plates.index")
+            ->with('message', "Plate $plate->name has been created successfully!")
+            ->with('alert-class', "success");
     }
 
     /**
@@ -61,16 +81,36 @@ class PlateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreOrUpdatePlateRequest $request, Plate $plate)
     {
-        //
+        $data = $request()->validated();
+
+        // If image value exist in request field
+        if ($request->hasFile("image")){
+            if ($plate->image){
+                Storage::disk("public")->delete($plate->image); // Delete the old value of plate image
+            }
+
+            $filePath = Storage::disk("public")->put("img/posts/", $request->image); // Store new value of image in Storage public disk
+            $data["image"] = $filePath; // Rewrite image value
+        }
+
+        $plate->update($data);
+
+        return redirect()->route("admin.posts.index")
+            ->with('message', "Plate $plate->name has been updated successfully!")
+            ->with('alert-class', "success");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Plate $plate)
     {
-        //
+        $plate->delete();
+
+        return redirect()->route("admin.posts.index")
+            ->with('message', "Plate $plate->name has been deleted successfully!")
+            ->with('alert-class', "danger");
     }
 }
