@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('scss')
-@vite('resources/sass/register-login.scss')
+    @vite('resources/sass/register-login.scss')
 @endsection
 
 @section('content')
