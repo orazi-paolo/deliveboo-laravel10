@@ -17,8 +17,9 @@ class RestaurantFactory extends Factory
      */
     public function definition(): array
     {
+        $userIds = User::all()->pluck("id");
         return [
-            "user_id" => User::inRandomOrder()->first(),
+            "user_id" => fake()->unique()->randomElement($userIds),
             "name" => fake()->name(),
             "description" => fake()->realText(),
             "address" => fake()->address(),
