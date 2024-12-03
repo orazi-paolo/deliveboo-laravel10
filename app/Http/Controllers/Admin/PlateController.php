@@ -31,7 +31,9 @@ class PlateController extends Controller
      */
     public function create()
     {
-        //
+        $plate = new Plate();
+
+        return view('admin.plates.create', compact('plate'));
     }
 
     /**
@@ -53,9 +55,9 @@ class PlateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Plate $plate)
     {
-        //
+        return view('admin.plates.edit', compact('plate'));
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\PlateController;
+use App\Http\Controllers\Admin\PlateController as AdminPlateController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('admin/')->group(function(){
+Route::prefix('/admin')->group(function(){
 
-    Route::resource('plates', PlateController::class);
+    Route::resource('plates', AdminPlateController::class);
 });
