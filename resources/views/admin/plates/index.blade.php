@@ -14,6 +14,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Ingredients Desription</th>
+                <th scope="col">Restaurant Name</th>
+                <th scope="col">Restaurant logo</th>
                 <th scope="col">Price</th>
             </tr>
         </thead>
@@ -22,12 +24,17 @@
             <tr>
                 <th scope="row">{{$plate->id}}</th>
                 <td>
-                    <img src="{{asset('storage/'.$plate->image_url)}}" alt="{{$plate->name. '\'s image'}}"
+                    <img src="{{asset('storage/'.$plate->image)}}" alt="{{$plate->name. '\'s image'}}"
                         class="rounded-4 shadow">
                 </td>
                 <td>{{$plate->name}}</td>
                 <td>{{$plate->description}}</td>
                 <td>{{$plate->ingredient_description}}</td>
+                <td>{{$plate->restaurant->name}}</td>
+                <td>
+                    <img src="{{asset('storage/'.$plate->restaurant->image)}}"
+                        alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
+                </td>
                 <td>{{$plate->price}}</td>
                 <td class="d-flex gap-1">
                     <a href="{{route('admin.plates.show', $plate)}}" class="btn btn-sm btn-success"><i

@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Plate;
 use Illuminate\Http\Request;
 
-use function Ramsey\Uuid\v1;
-
 class PlateController extends Controller
 {
 

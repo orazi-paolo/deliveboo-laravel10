@@ -18,4 +18,8 @@ class Plate extends Model
         'price',
         'visible',
     ];
+
+    // public function restaurant(){
+    //     return $this->belongsTo(Restaurant::class);
+    // }
 }
