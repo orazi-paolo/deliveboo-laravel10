@@ -24,7 +24,7 @@ class PlateFactory extends Factory
             "ingredient_description" => implode(",", fake()->words()),
             "price" => fake()->randomFloat(2, 1, 30),
             "visible" => fake()->boolean(),
-            "image" => "https://placehold.co/600x400?text=Plate"
+            "image" => "https://placehold.co/400x300?text=Plate"
         ];
     }
 }
