@@ -22,7 +22,7 @@ class PlateFactory extends Factory
             "name" => fake()->word(),
             "description" => fake()->realText(),
             "ingredient_description" => implode(",", fake()->words()),
-            "price" => fake()->randomFloat(2, 1, 200),
+            "price" => fake()->randomFloat(2, 1, 30),
             "visible" => fake()->boolean(),
             "image" => "https://placehold.co/600x400?text=Plate"
         ];
