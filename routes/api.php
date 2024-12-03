@@ -20,5 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Plate resources
-Route::get("/plates", [PlateController::class, "index"])->name("api.plates.index");
-Route::get("/plates/{plate}", [PlateController::class, "show"])->name("api.plates.show");
+Route::prefix("plates")->name("api.plates.")->group(function () {
+    Route::get("/", [PlateController::class, "index"])->name("index");
+    Route::get("/{plate}", [PlateController::class, "show"])->name("show");
+});
