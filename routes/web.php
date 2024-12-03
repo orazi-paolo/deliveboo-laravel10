@@ -23,7 +23,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('/admin')->group(function(){
+Route::prefix('/admin')->name('admin.')->group(function(){
+
+    Route::get('plates.trash.index', [AdminPlateController::class, 'deletedIndex'])->name('plates.deleted-index');
+    Route::patch("/plates/{plate}/restore", [AdminPlateController::class, "restore"])->name("plates.restore")->withTrashed();
+    Route::delete("/plates/{plate}/force-delete", [AdminPlateController::class, "forceDelete"])->name("plates.force-delete")->withTrashed();
 
     Route::resource('plates', AdminPlateController::class);
 });

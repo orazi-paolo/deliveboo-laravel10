@@ -3,7 +3,7 @@
 @section('form-title', 'Create new plate')
 
 @section('form-action')
-{{ route('plates.store') }}
+{{ route('admin.plates.store') }}
 @endsection
 
 @section('form-method')

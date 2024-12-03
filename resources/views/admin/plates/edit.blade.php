@@ -5,7 +5,7 @@ Updating {{$plate->name}}
 @endsection
 
 @section('form-action')
-{{ route('plates.update', $plate)}}
+{{ route('admin.plates.update', $plate)}}
 @endsection
 
 @section('form-method')

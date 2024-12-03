@@ -18,6 +18,36 @@ class PlateController extends Controller
     }
 
     /**
+     * Display a listing of the deleted resources.
+     */
+    public function deletedIndex()
+    {
+        $plates = Plate::onlyTrashed();
+
+        return view("admin.plates.deleted.index", compact("plates"));
+    }
+
+    /**
+     * Retore the deleted resources.
+     */
+    public function restore(Plate $plate){
+        $plate->restore();
+        return redirect()->route("admin.plates.index")
+            ->with('message', "Plate $plate->name has been restored succesfully!")
+            ->with('alert-class', "success");
+    }
+
+    /**
+     * Permanently Delete resources.
+     */
+    public function forceDelete(Plate $plate){
+        $plate->forceDelete();
+        return redirect()->route("admin.plates.deleted-index")
+            ->with('message', "Plate $plate->name has been PERMANENTLY deleted!")
+            ->with('alert-class', "danger");
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -91,13 +121,13 @@ class PlateController extends Controller
                 Storage::disk("public")->delete($plate->image); // Delete the old value of plate image
             }
 
-            $filePath = Storage::disk("public")->put("img/posts/", $request->image); // Store new value of image in Storage public disk
+            $filePath = Storage::disk("public")->put("img/plates/", $request->image); // Store new value of image in Storage public disk
             $data["image"] = $filePath; // Rewrite image value
         }
 
         $plate->update($data);
 
-        return redirect()->route("admin.posts.index")
+        return redirect()->route("admin.plates.index")
             ->with('message', "Plate $plate->name has been updated successfully!")
             ->with('alert-class', "success");
     }
@@ -109,7 +139,7 @@ class PlateController extends Controller
     {
         $plate->delete();
 
-        return redirect()->route("admin.posts.index")
+        return redirect()->route("admin.plates.index")
             ->with('message', "Plate $plate->name has been deleted successfully!")
             ->with('alert-class', "danger");
     }
