@@ -91,10 +91,10 @@
             If you did not request a password reset, no further action is required.
         </div>
         <div class="footer">
-            &copy; {{ date('Y') }} Deliveboo. All rights reserved.<br>
             If you're having trouble clicking the "Reset Password" button, copy and paste the URL below into your web
             browser:<br>
-            <a href="{{ $url }}">{{ $url }}</a>
+            <a href="{{ $url }}">{{ $url }}</a><br>
+            &copy; {{ date('Y') }} Deliveboo. All rights reserved.
         </div>
     </div>
 </body>
