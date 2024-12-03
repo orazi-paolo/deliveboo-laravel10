@@ -22,9 +22,9 @@ class PlateController extends Controller
      */
     public function deletedIndex()
     {
-        $plates = Plate::onlyTrashed();
+        $plates = Plate::onlyTrashed()->get();
 
-        return view("admin.plates.deleted.index", compact("plates"));
+        return view("admin.plates.trash.index", compact("plates"));
     }
 
     /**
@@ -69,9 +69,9 @@ class PlateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreOrUpdatePlateRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         // If the file in image requst exist
         if($request->hasFile('image')){
