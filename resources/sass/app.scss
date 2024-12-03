@@ -6,3 +6,26 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+.logo{
+    height: 25px;
+}
+.turquoise{
+    color: $turquoise;
+}
+
+.nav-link.border.turquoise:hover {
+    color: $turquoise;
+    border-color: #999999 !important;
+}
+
+
+@media (max-width: 768px) {
+    .login-m {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+
