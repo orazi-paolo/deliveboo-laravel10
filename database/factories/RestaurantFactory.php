@@ -20,12 +20,12 @@ class RestaurantFactory extends Factory
         $userIds = User::all()->pluck("id");
         return [
             "user_id" => fake()->unique()->randomElement($userIds),
-            "name" => fake()->name(),
+            "name" => fake()->sentence(3),
             "description" => fake()->realText(),
             "address" => fake()->address(),
             "city" => fake()->city(),
             "VAT" => fake()->unique()->bothify("??##?#?##??"),
-            "image" => "https://placehold.co/600x400?text=Placeholder"
+            "image" => "https://placehold.co/600x400?text=Restaurant"
         ];
     }
 }
