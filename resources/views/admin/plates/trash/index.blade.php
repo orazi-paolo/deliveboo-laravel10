@@ -19,18 +19,18 @@
             @forelse ($plates as $plate)
             <tr>
                 <th scope="row">{{$plate->id}}</th>
-                <td>
+                {{-- <td>
                     <img src="{{asset('storage/'.$plate->image)}}" alt="{{$plate->name. '\'s image'}}"
                         class="rounded-4 shadow">
-                </td>
+                </td> --}}
                 <td>{{$plate->name}}</td>
                 <td>{{$plate->description}}</td>
                 <td>{{$plate->ingredient_description}}</td>
-                <td>{{$plate->restaurant->name}}</td>
-                <td>
+                {{-- <td>{{$plate->restaurant->name}}</td> --}}
+                {{-- <td>
                     <img src="{{asset('storage/'.$plate->restaurant->image)}}"
                         alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
-                </td>
+                </td> --}}
                 <td>{{$plate->price}}</td>
 
                 <td class="d-flex gap-1">
