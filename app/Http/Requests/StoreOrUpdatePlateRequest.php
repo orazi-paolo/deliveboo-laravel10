@@ -24,12 +24,12 @@ class StoreOrUpdatePlateRequest extends FormRequest
     {
         return [
             // 'restaurant_id'=>['required', 'numeric', 'integer', 'exists:restaurants,id'],
-            'image'=>['nullable', 'image', 'max:255'],
-            'name'=>['required', 'string', 'min:2', 'max:255'],
-            'description'=>['required', 'string', 'min:20'],
-            'ingredient_description'=>['required', 'string', 'min:20'],
-            'price'=>['required', 'numeric', 'regex:/^\d{1,6}(\.\d{1,2})?$/'],
-            'visible'=>['boolean'],
+            'name' => ['required', 'string', 'min:2', 'max:255'],
+            'description' => ['nullable', 'string', 'min:20'],
+            'ingredient_description' => ['nullable', 'string', 'min:20'],
+            'price' => ['required', 'numeric', 'regex:/^\d{1,6}(\.\d{1,2})?$/'],
+            'image' => ['nullable', 'image', 'max:255'],
+            'visible' => ['boolean'],
         ];
     }
 }
