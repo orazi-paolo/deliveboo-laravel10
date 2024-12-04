@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (auth()->check() && !auth()->user()->restaurant) {
+            return redirect()->route('admin.restaurants.create');
+        }
+
         return view('home');
     }
 }
