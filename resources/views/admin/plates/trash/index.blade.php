@@ -73,9 +73,9 @@
                 @endforelse
             </tbody>
         </table>
-        <div>
+        {{-- <div>
             {{ $plates->links() }}
-        </div>
+        </div> --}}
     </div>
 @endsection
 

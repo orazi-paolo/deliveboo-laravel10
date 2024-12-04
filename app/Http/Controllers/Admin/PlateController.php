@@ -54,7 +54,7 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = Plate::paginate(8);
+        $plates = auth()->user()->restaurant->plates;
         return view('admin.plates.index', compact('plates'));
     }
 
