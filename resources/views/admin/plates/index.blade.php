@@ -3,20 +3,18 @@
 @section('content')
 <div class="container py-5">
     <!-- Create plate Button-->
-    <a href="{{route('admin.plates.create')}}" type="button" class="btn btn-sm btn-outline-primary mb-3">
+    <a href="{{route('admin.plates.create')}}" type="button" class="btn btn-sm btn-outline-info mb-3">
         Create new Plate
     </a>
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Ingredients Desription</th>
-                <th scope="col">Restaurant Name</th>
-                <th scope="col">Restaurant logo</th>
-                <th scope="col">Price</th>
+                <th scope="col" class="turquoise">Id</th>
+                <th scope="col" class="turquoise">Name</th>
+                <th scope="col" class="turquoise">Description</th>
+                <th scope="col" class="turquoise">Ingredients Desription</th>
+                <th scope="col" class="turquoise">Price</th>
+                <th scope="col" class="turquoise">Visible</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +34,7 @@
                         alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
                 </td> --}}
                 <td>{{$plate->price}}</td>
+                <td> {{($plate->visible)? 'Yes' : 'No'}} </td>
                 <td class="d-flex gap-1">
                     <a href="{{route('admin.plates.show', $plate)}}" class="btn btn-sm btn-success"><i
                             class="bi bi-eye-fill"></i></a>
