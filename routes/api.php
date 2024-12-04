@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\PlateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PlateController;
+use App\Http\Controllers\Api\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::prefix("plates")->name("api.plates.")->group(function () {
     Route::get("/", [PlateController::class, "index"])->name("index");
     Route::get("/{plate}", [PlateController::class, "show"])->name("show");
 });
+
+Route::get('/restaurant', [RestaurantController::class, 'index'])->name('api.restaurants.index');
+Route::get('/restaurant/{restaurant}', [RestaurantController::class, 'show'])->name('api.restaurants.show');
