@@ -15,6 +15,7 @@
                 <th scope="col" class="turquoise">Ingredients Desription</th>
                 <th scope="col" class="turquoise">Price</th>
                 <th scope="col" class="turquoise">Visible</th>
+                <th scope="col" class="turquoise">Action</th>
             </tr>
         </thead>
         <tbody>
