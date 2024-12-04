@@ -75,7 +75,6 @@ class PlateController extends Controller
     {
         $data = $request->validated();
 
-
         // If the file in image requst exist
         if ($request->hasFile('image')) {
             $filepath = Storage::disk('public')->put('image/plate', $request->image); // Save image in Storage public disk
@@ -109,7 +108,7 @@ class PlateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Plate $plate)
+    public function update(StoreOrUpdatePlateRequest $request, Plate $plate)
     {
         $data = $request->all();
 
@@ -138,7 +137,7 @@ class PlateController extends Controller
         $plate->delete();
 
         return redirect()->route("admin.plates.index")
-            ->with('message', "Plate $plate->name has been deleted successfully!")
-            ->with('alert-class', "danger");
+        ->with('message', "Plate $plate->name has been deleted successfully!")
+        ->with('alert-class', "danger");
     }
 }

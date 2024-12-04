@@ -23,7 +23,6 @@ class StoreOrUpdatePlateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'restaurant_id'=>['required', 'numeric', 'integer', 'exists:restaurants,id'],
             'name' => ['required', 'string', 'min:2', 'max:255'],
             'description' => ['nullable', 'string', 'min:20'],
             'ingredient_description' => ['nullable', 'string', 'min:20'],

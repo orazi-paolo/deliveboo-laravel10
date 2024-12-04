@@ -56,7 +56,7 @@
         <div class="row mb-3">
             <div class="col-12 col-lg-6">
                 <label for="price" class="form-label turquoise">Price</label>
-                <input type="number" class="form-control" name="price" id="price"
+                <input type="number" step="0.01" class="form-control" name="price" id="price"
                     value="{{old('price', $plate->price)}}">
                 @error('price')
                 <small><i class="text-danger">{{$message}}</i></small>
