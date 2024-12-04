@@ -26,7 +26,8 @@ class HomeController extends Controller
         if (auth()->check() && !auth()->user()->restaurant) {
             return redirect()->route('admin.restaurants.create');
         }
+        $restaurant = auth()->user()->restaurant;
 
-        return view('home');
+        return view('home', compact('restaurant'));
     }
 }
