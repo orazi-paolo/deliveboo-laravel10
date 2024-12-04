@@ -11,8 +11,14 @@
             <tr>
                 <th scope="col" class="turquoise">Id</th>
                 <th scope="col" class="turquoise">Name</th>
-                <th scope="col" class="turquoise">Description</th>
-                <th scope="col" class="turquoise">Ingredients Desription</th>
+                <th scope="col" class="turquoise">
+                    <p class="d-none d-lg-block p-0 m-0">Decription</p>
+                    <p class="d-lg-none text-truncate p-0 m-0" style="max-width: 50px;">Description</p>
+                </th>
+                <th scope="col" class="turquoise">
+                    <p class="d-none d-lg-block p-0 m-0">Ingredients</p>
+                    <p class="d-lg-none text-truncate p-0 m-0" style="max-width: 50px;">Ingredients</p>
+                </th>
                 <th scope="col" class="turquoise">Price</th>
                 <th scope="col" class="turquoise">Visible</th>
                 <th scope="col" class="turquoise">Action</th>
@@ -27,8 +33,14 @@
                         class="rounded-4 shadow">
                 </td> --}}
                 <td>{{$plate->name}}</td>
-                <td>{{$plate->description}}</td>
-                <td>{{$plate->ingredient_description}}</td>
+                <td>
+                    <p class="d-none d-lg-block">{{$plate->description}}</p>
+                    <p class="d-lg-none text-truncate" style="max-width: 50px;">{{$plate->description}}</p>
+                </td>
+                <td>
+                    <p class="d-none d-lg-block">{{$plate->ingredient_description}}</p>
+                    <p class="d-lg-none text-truncate" style="max-width: 50px;">{{$plate->ingredient_description}}</p>
+                </td>
                 {{-- <td>{{$plate->restaurant->name}}</td> --}}
                 {{-- <td>
                     <img src="{{asset('storage/'.$plate->restaurant->image)}}"
