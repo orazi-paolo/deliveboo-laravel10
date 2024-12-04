@@ -14,7 +14,7 @@ class PlateController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');// Each methods of this controller throw before from moddleware auth.
+        $this->middleware('auth'); // Each methods of this controller throw before from moddleware auth.
     }
 
     /**
@@ -22,7 +22,7 @@ class PlateController extends Controller
      */
     public function deletedIndex()
     {
-        $plates = Plate::onlyTrashed()->get();
+        $plates = Plate::onlyTrashed()->paginate(8);
 
         return view("admin.plates.trash.index", compact("plates"));
     }
@@ -30,7 +30,8 @@ class PlateController extends Controller
     /**
      * Retore the deleted resources.
      */
-    public function restore(Plate $plate){
+    public function restore(Plate $plate)
+    {
         $plate->restore();
         return redirect()->route("admin.plates.index")
             ->with('message', "Plate $plate->name has been restored succesfully!")
@@ -40,7 +41,8 @@ class PlateController extends Controller
     /**
      * Permanently Delete resources.
      */
-    public function forceDelete(Plate $plate){
+    public function forceDelete(Plate $plate)
+    {
         $plate->forceDelete();
         return redirect()->route("admin.plates.deleted-index")
             ->with('message', "Plate $plate->name has been PERMANENTLY deleted!")
@@ -52,7 +54,7 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = Plate::all();
+        $plates = Plate::paginate(8);
         return view('admin.plates.index', compact('plates'));
     }
 
@@ -74,8 +76,8 @@ class PlateController extends Controller
         $data = $request->validated();
 
         // If the file in image requst exist
-        if($request->hasFile('image')){
-            $filepath = Storage::disk('public')->put('image/plate',$request->image); // Save image in Storage public disk
+        if ($request->hasFile('image')) {
+            $filepath = Storage::disk('public')->put('image/plate', $request->image); // Save image in Storage public disk
             $data['image'] = $filepath; // Rewrite the image value
 
         }
@@ -111,8 +113,8 @@ class PlateController extends Controller
         $data = $request->all();
 
         // If image value exist in request field
-        if ($request->hasFile("image")){
-            if ($plate->image){
+        if ($request->hasFile("image")) {
+            if ($plate->image) {
                 Storage::disk("public")->delete($plate->image); // Delete the old value of plate image
             }
 
