@@ -1,0 +1,41 @@
+// Variables
+@import 'variables';
+
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+
+.logo {
+    height: 25px;
+}
+
+.turquoise {
+    color: $turquoise;
+}
+
+.btn-outline-turquoise {
+    color: $turquoise;
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid $turquoise;
+}
+.btn-outline-turquoise:hover {
+    color: $white;
+    background: $turquoise;
+    border-radius: 5px;
+}
+
+.btn-turquoise {
+    color: black    ;
+    background-color: $turquoise;
+    border-radius: 5px;
+}
+.btn-turquoise:hover {
+    color: black    ;
+    background-color: $turquoise;
+    opacity: 90%;
+    border-radius: 5px;
+}
