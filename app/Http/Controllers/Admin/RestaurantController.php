@@ -12,6 +12,9 @@ class RestaurantController extends Controller
 {
     public function create()
     {
+        if (auth()->user()->restaurant) {
+            return redirect()->route('home')->with('error', "You've already created a restaurant!");
+        }
         return view('admin.restaurants.create');
     }
 
