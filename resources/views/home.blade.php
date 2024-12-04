@@ -26,6 +26,7 @@
             </div>
             @endif
         </div>
+        @if(session('first_login'))
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
@@ -41,6 +42,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 </div>
 @endsection

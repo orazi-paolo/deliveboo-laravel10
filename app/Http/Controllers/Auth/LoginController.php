@@ -37,4 +37,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
     }
+
+     protected function authenticated()
+    {
+        session()->flash('first_login', true);
+
+        return redirect()->intended($this->redirectTo);
+    }
 }

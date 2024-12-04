@@ -26,7 +26,7 @@
                 <div class="container d-flex align-items-center">
                     <img src="{{ asset('images/deliveroo-logo.webp') }}" alt="Deliveboo Logo"
                         class="img-fluid d-block logo me-1">
-                    <a class="navbar-brand turquoise fw-bold" href="{{ url('/') }}">
+                    <a class="navbar-brand turquoise fw-bold" href="{{ url('/home') }}">
                         deliveboo
                     </a>
                     <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.index') }}">
