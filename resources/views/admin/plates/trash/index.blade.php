@@ -62,7 +62,7 @@
                     <form action="{{route('admin.plates.force-delete', $plate)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-sm btn-danger delete-btn" type="submit" value="delete"
+                        <button class="btn btn-sm btn-danger delete-btn permanently-delete" type="submit" value="delete"
                             delete-data-name="{{$plate->name}}">Delete Permanently</button>
                     </form>
                 </td>
@@ -73,4 +73,8 @@
         </tbody>
     </table>
 </div>
+@endsection
+
+@section('add-script')
+@vite("resources/js/plates/permanently-delete-confirmation.js");
 @endsection

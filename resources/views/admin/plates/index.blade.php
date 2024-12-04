@@ -68,3 +68,7 @@
     </table>
 </div>
 @endsection
+
+@section('add-script')
+@vite("resources/js/plates/delete-confirmation.js");
+@endsection
