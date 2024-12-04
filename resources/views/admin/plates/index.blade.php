@@ -50,7 +50,7 @@
                 </td>
             </tr>
             @empty
-            abort(404)
+            <h1>Plates list is Empty</h1>
             @endforelse
         </tbody>
     </table>

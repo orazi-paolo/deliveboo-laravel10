@@ -3,6 +3,9 @@
 @vite('resources/sass/plate-create-scss')
 @endsection
 @section('content')
+<div class="container">
+    @yield('goback-icon')
+</div>
 <div class="container d-flex justify-content-center">
     <form action="@yield('form-action')" class="form-control w-75 shadow p-5" method="POST"
         enctype="multipart/form-data">

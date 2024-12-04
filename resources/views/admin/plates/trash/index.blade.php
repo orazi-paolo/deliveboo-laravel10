@@ -1,18 +1,24 @@
 @extends('layouts.app')
 
+
 @section('content')
+<div class="container">
+    <a href="{{ route('admin.plates.index') }}" class="text-decoration-none text-secondary">
+        <i class="bi bi-arrow-left"></i>
+        Back
+    </a>
+</div>
 <div class="container py-5">
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Ingredients Desription</th>
-                <th scope="col">Restaurant Name</th>
-                <th scope="col">Restaurant logo</th>
-                <th scope="col">Price</th>
+                <th scope="col" class="turquoise">Id</th>
+                <th scope="col" class="turquoise">Name</th>
+                <th scope="col" class="turquoise">Description</th>
+                <th scope="col" class="turquoise">Ingredients</th>
+                <th scope="col" class="turquoise">Price</th>
+                <th scope="col" class="turquoise">Visible</th>
+                <th scope="col" class="turquoise">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -32,12 +38,13 @@
                         alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
                 </td> --}}
                 <td>{{$plate->price}}</td>
+                <td> {{($plate->visible)? 'Yes' : 'No'}} </td>
 
                 <td class="d-flex gap-1">
                     <form action="{{route('admin.plates.restore', $plate)}}" method="POST">
                         @csrf
                         @method('PATCH')
-                        <button class="btn btn-sm btn-danger delete-btn" type="submit" value="delete"
+                        <button class="btn btn-sm btn-warning delete-btn" type="submit" value="delete"
                             delete-data-name="{{$plate->name}}">Restore</button>
                     </form>
                     <form action="{{route('admin.plates.force-delete', $plate)}}" method="POST">
@@ -49,7 +56,7 @@
                 </td>
             </tr>
             @empty
-            abort(404)
+            <h1>Trash is Empty</h1>
             @endforelse
         </tbody>
     </table>
