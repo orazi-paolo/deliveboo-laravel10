@@ -75,13 +75,14 @@ class PlateController extends Controller
     {
         $data = $request->validated();
 
+
         // If the file in image requst exist
         if ($request->hasFile('image')) {
             $filepath = Storage::disk('public')->put('image/plate', $request->image); // Save image in Storage public disk
             $data['image'] = $filepath; // Rewrite the image value
 
         }
-
+        $data["restaurant_id"] = auth()->user()->restaurant->id;
         $plate = Plate::create($data);
 
         return redirect()->route("admin.plates.index")
