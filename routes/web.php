@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PlateController as AdminPlateController;
+use App\Http\Controllers\Admin\RestaurantController as AdminRestaurantController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('register');
 });
 
 Auth::routes(['verify' => true]);
@@ -30,4 +31,5 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::delete("/plates/{plate}/force-delete", [AdminPlateController::class, "forceDelete"])->name("plates.force-delete")->withTrashed();
 
     Route::resource('plates', AdminPlateController::class);
+    Route::resource('restaurants', AdminRestaurantController::class);
 });
