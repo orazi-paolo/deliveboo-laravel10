@@ -1,4 +1,4 @@
-const deleteButtons = document.querySelectorAll(".delete-btn");
+/* const deleteButtons = document.querySelectorAll(".delete-btn");
 
 deleteButtons.forEach((button) => {
     button.addEventListener("click", function (event) {
@@ -11,4 +11,4 @@ deleteButtons.forEach((button) => {
             event.preventDefault();
         }
     });
-});
+}); */
