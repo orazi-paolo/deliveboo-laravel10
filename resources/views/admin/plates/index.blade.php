@@ -11,9 +11,11 @@
             <!-- Create plate Button-->
             <a href="{{ route('admin.plates.create') }}" type="button" class="btn btn-sm btn-outline-turquoise me-3">
                 Create new Plate
+                <i class="bi bi-plus"></i>
             </a>
             <a href="{{ route('admin.plates.deleted-index') }}" type="button" class="btn btn-sm btn-outline-turquoise">
                 Go to bin
+                <i class="bi bi-trash"></i>
             </a>
         </div>
         <table class="table">
