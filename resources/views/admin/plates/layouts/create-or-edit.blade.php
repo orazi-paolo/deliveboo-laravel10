@@ -27,9 +27,7 @@
                 <small class="input-instruction d-block">The uploaded file must not exceed 2 MB in size (2048
                     kilobytes).</small>
                 {{-- Errors message --}}
-                @error('image')
-                <small><i class="text-danger">{{ $message }}</i></small>
-                @enderror
+                @include('partials.input-validation-error-messages', ['inputName'=>'image'])
             </div>
         </div>
         {{-- Name input --}}
@@ -41,9 +39,7 @@
                 <small class="input-instruction">This field is required and must be a text input no longer than 255
                     characters.</small>
                 {{-- Errors message --}}
-                @error('name')
-                <small><i class="text-danger">{{ $message }}</i></small>
-                @enderror
+                @include('partials.input-validation-error-messages', ['inputName'=>'name'])
             </div>
         </div>
         {{-- Ingridients Input --}}
@@ -53,9 +49,7 @@
                 <textarea class="form-control" name="ingredient_description" id="ingredient_description" rows="3"
                     placeholder="e.g., Classic Italian pasta dish with a rich sauce made of eggs, Pecorino Romano cheese, pancetta, and black pepper for a creamy texture and bold flavor.">{{ old('ingredient_description', $plate->ingredient_description) }}</textarea>
                 {{-- Errors message --}}
-                @error('ingredient_description')
-                <small><i class="text-danger">{{ $message }}</i></small>
-                @enderror
+                @include('partials.input-validation-error-messages', ['inputName'=>'ingredient_description'])
             </div>
         </div>
         {{-- Decription input --}}
@@ -65,9 +59,7 @@
                 <textarea class="form-control" name="description" id="description" rows="3"
                     placeholder="e.g., Traditional Italian pasta dish known for its rich and creamy sauce made with eggs, Pecorino Romano cheese, pancetta, and a touch of black pepper. Perfectly balanced flavors for an authentic taste experience.">{{ old('description', $plate->description) }}</textarea>
                 {{-- Errors message --}}
-                @error('description')
-                <small><i class="text-danger">{{ $message }}</i></small>
-                @enderror
+                @include('partials.input-validation-error-messages', ['inputName'=>'description'])
             </div>
         </div>
         {{-- Price input --}}
@@ -78,13 +70,9 @@
                     value="{{ old('price', $plate->price) }}" placeholder="e.g., 123.00" required>
                 <small class="input-instruction">This field is required and must be a number with up to 6 digits before
                     the decimal
-                    point.
-                    <br> And up to 2 digits after the decimal point.</small>
-                <small class="input-instruction"></small>
+                    point. And up to 2 digits after the decimal point.</small>
                 {{-- Errors message --}}
-                @error('price')
-                <small><i class="text-danger">{{ $message }}</i></small>
-                @enderror
+                @include('partials.input-validation-error-messages', ['inputName'=>'price'])
             </div>
         </div>
         {{-- Visible check box --}}
@@ -96,9 +84,7 @@
                 <small class="input-instruction d-block">If checked, the plate will be published directly on the
                     website.</small>
                 {{-- Errors message --}}
-                @error('visible')
-                <small><i class="text-danger">{{ $message }}</i></small>
-                @enderror
+                @include('partials.input-validation-error-messages', ['inputName'=>'visible'])
             </div>
         </div>
         {{-- Submit button --}}
