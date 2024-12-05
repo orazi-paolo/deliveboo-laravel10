@@ -68,7 +68,7 @@
                         <td>{{ $plate->visible ? 'Yes' : 'No' }}</td>
                         <td class="text-center">
                             <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
-                                class="img-fluid w-50 rounded-4 shadow">
+                                class="img rounded-4 shadow my-2">
                         </td>
                         <td>
                             <div class="d-flex gap-1">

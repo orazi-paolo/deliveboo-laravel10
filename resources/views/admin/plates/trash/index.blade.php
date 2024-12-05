@@ -60,7 +60,7 @@
                         <td> {{ $plate->visible ? 'Yes' : 'No' }} </td>
                         <td class="text-center">
                             <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
-                                class="img-fluid w-25 rounded-4 shadow">
+                                class="img-2 rounded-4 shadow my-2">
                         </td>
 
                         <td>
