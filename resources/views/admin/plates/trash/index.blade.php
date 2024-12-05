@@ -1,30 +1,31 @@
 @extends('layouts.app')
 
-
 @section('content')
-    <div class="container">
-        <a href="{{ route('admin.plates.index') }}" class="btn btn-secondary text-decoration-none">
-            <i class="bi bi-arrow-left"></i>
-            Back
-        </a>
-    </div>
     <div class="container py-5">
+        @include('partials.session-msg')
+        <div class="box-buttons mb-3">
+            <a href="{{ route('admin.plates.index') }}" class="btn btn-sm btn-secondary text-decoration-none">
+                <i class="bi bi-arrow-left"></i>
+                Back
+            </a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col" class="turquoise">Id</th>
-                    <th scope="col" class="turquoise">Name</th>
-                    <th scope="col" class="turquoise">
-                        <p class="d-none d-lg-block p-0 m-0">Decription</p>
-                        <p class="d-lg-none text-truncate p-0 m-0" style="max-width: 50px;">Description</p>
+                    <th scope="col"><span class="turquoise">Id</span></th>
+                    <th scope="col"><span class="turquoise">Name</span></th>
+                    <th scope="col">
+                        <p class="d-none d-lg-block turquoise p-0 m-0">Decription</p>
+                        <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">Description</p>
                     </th>
-                    <th scope="col" class="turquoise">
-                        <p class="d-none d-lg-block p-0 m-0">Ingredients</p>
-                        <p class="d-lg-none text-truncate p-0 m-0" style="max-width: 50px;">Ingredients</p>
+                    <th scope="col">
+                        <p class="d-none d-lg-block turquoise p-0 m-0">Ingredients</p>
+                        <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">Ingredients</p>
                     </th>
-                    <th scope="col" class="turquoise">Price</th>
-                    <th scope="col" class="turquoise">Visible</th>
-                    <th scope="col" class="turquoise">Action</th>
+                    <th scope="col" class="text-center"><span class="turquoise">Image</span></th>
+                    <th scope="col"><span class="turquoise">Price</span></th>
+                    <th scope="col"><span class="turquoise">Visible</span></th>
+                    <th scope="col"><span class="turquoise">Action</span></th>
                 </tr>
             </thead>
             <tbody>
@@ -50,10 +51,10 @@
                             </p>
                         </td>
                         {{-- <td>{{$plate->restaurant->name}}</td> --}}
-                        {{-- <td>
-                    <img src="{{asset('storage/'.$plate->restaurant->image)}}"
-                        alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
-                </td> --}}
+                        <td class="text-center">
+                            <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
+                                class="img-fluid w-25 rounded-4 shadow">
+                        </td>
                         <td>{{ $plate->price }}&euro;</td>
                         <td> {{ $plate->visible ? 'Yes' : 'No' }} </td>
 

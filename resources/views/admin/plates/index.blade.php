@@ -6,14 +6,16 @@
 
 @section('content')
     <div class="container py-5">
-        <!-- Create plate Button-->
-        <a href="{{ route('admin.plates.create') }}" type="button" class="btn btn-sm btn-outline-turquoise mb-3 me-3">
-            Create new Plate
-        </a>
-        <a href="{{ route('admin.plates.deleted-index') }}" type="button" class="btn btn-sm btn-outline-turquoise mb-3">
-            Go to bin
-        </a>
         @include('partials.session-msg')
+        <div class="box-buttons mb-3">
+            <!-- Create plate Button-->
+            <a href="{{ route('admin.plates.create') }}" type="button" class="btn btn-sm btn-outline-turquoise me-3">
+                Create new Plate
+            </a>
+            <a href="{{ route('admin.plates.deleted-index') }}" type="button" class="btn btn-sm btn-outline-turquoise">
+                Go to bin
+            </a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -27,6 +29,7 @@
                         <p class="d-none d-lg-block turquoise p-0 m-0">Ingredients</p>
                         <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">Ingredients</p>
                     </th>
+                    <th scope="col" class="text-center"><span class="turquoise">Image</span></th>
                     <th scope="col"><span class="turquoise">Price</span></th>
                     <th scope="col"><span class="turquoise">Visible</span></th>
                     <th scope="col"><span class="turquoise">Action</span></th>
@@ -58,6 +61,10 @@
                     <img src="{{asset('storage/'.$plate->restaurant->image)}}"
                         alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
                 </td> --}}
+                        <td class="text-center">
+                            <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
+                                class="img-fluid w-50 rounded-4 shadow">
+                        </td>
                         <td>{{ $plate->price }}&euro;</td>
                         <td> {{ $plate->visible ? 'Yes' : 'No' }} </td>
                         <td>
