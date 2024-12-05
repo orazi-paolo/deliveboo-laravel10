@@ -32,14 +32,12 @@
 
                 {{-- Navbars --}}
                 @auth
-                @if (auth()->user()->restaurant)
                 <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.index') }}">
                     Plates
                 </a>
                 <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.create') }}">
                     Create New
                 </a>
-                @endif
                 @endauth
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
