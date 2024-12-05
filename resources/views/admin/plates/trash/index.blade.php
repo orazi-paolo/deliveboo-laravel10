@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container py-5">
+    <div class="container-fluid py-5">
         @include('partials.session-msg')
         <div class="box-buttons mb-3">
             <a href="{{ route('admin.plates.index') }}" class="btn btn-sm btn-turquoise text-decoration-none">
