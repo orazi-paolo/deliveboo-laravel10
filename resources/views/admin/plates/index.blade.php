@@ -50,14 +50,20 @@
                             <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->name }}
                         </td>
                         <td>
-                            <p class="d-none d-lg-block m-0">{{ substr($plate->description, 0, 30) . '...' }}</p>
-                            <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->description }}</p>
+                            @if ($plate->description)
+                                <p class="d-none d-lg-block m-0">{{ substr($plate->description, 0, 30) . '...' }}</p>
+                                <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->description }}
+                                </p>
+                            @endif
                         </td>
                         <td>
-                            <p class="d-none d-lg-block m-0">{{ substr($plate->ingredient_description, 0, 30) . '...' }}</p>
-                            <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
-                                {{ $plate->ingredient_description }}
-                            </p>
+                            @if ($plate->ingredient_description)
+                                <p class="d-none d-lg-block m-0">{{ substr($plate->ingredient_description, 0, 30) . '...' }}
+                                </p>
+                                <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
+                                    {{ $plate->ingredient_description }}
+                                </p>
+                            @endif
                         </td>
                         {{-- <td>{{$plate->restaurant->name}}</td> --}}
                         {{-- <td>
@@ -67,8 +73,10 @@
                         <td>{{ $plate->price }}&euro;</td>
                         <td>{{ $plate->visible ? 'Yes' : 'No' }}</td>
                         <td class="text-center">
-                            <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
-                                class="img rounded-4 shadow my-2">
+                            @if ($plate->image)
+                                <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
+                                    class="img-2 rounded-4 shadow my-2">
+                            @endif
                         </td>
                         <td>
                             <div class="d-flex gap-1">

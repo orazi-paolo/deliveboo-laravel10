@@ -45,23 +45,29 @@
                             <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->name }}
                         </td>
                         <td>
-                            <p class="d-none d-lg-block m-0" style="max-width: 300px;">
-                                {{ substr($plate->description, 0, 20) . '...' }}</p>
-                            <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
-                                {{ substr($plate->description, 0, 20) . '...' }}</p>
+                            @if ($plate->description)
+                                <p class="d-none d-lg-block m-0" style="max-width: 300px;">
+                                    {{ substr($plate->description, 0, 20) . '...' }}</p>
+                                <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
+                                    {{ substr($plate->description, 0, 20) . '...' }}</p>
+                            @endif
                         </td>
                         <td>
-                            <p class="d-none d-lg-block m-0">{{ substr($plate->description, 0, 20) . '...' }}</p>
-                            <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
-                                {{ $plate->ingredient_description }}
-                            </p>
+                            @if ($plate->ingredient)
+                                <p class="d-none d-lg-block m-0">{{ substr($plate->description, 0, 20) . '...' }}</p>
+                                <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
+                                    {{ $plate->ingredient_description }}
+                                </p>
+                            @endif
                         </td>
                         {{-- <td>{{$plate->restaurant->name}}</td> --}}
                         <td>{{ $plate->price }}&euro;</td>
                         <td> {{ $plate->visible ? 'Yes' : 'No' }} </td>
                         <td class="text-center">
-                            <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
-                                class="img-2 rounded-4 shadow my-2">
+                            @if ($plate->image)
+                                <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
+                                    class="img rounded-4 shadow my-2">
+                            @endif
                         </td>
 
                         <td>
