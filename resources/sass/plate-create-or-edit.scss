@@ -62,8 +62,3 @@ textarea::placeholder{
 input:focus + .input-instruction {
     display: block; /* Display input instruction in input focus */
 }
-
-input:focus + .error-message{
-    display: none; /* Hiden input error messsage in input focus */
-
-}

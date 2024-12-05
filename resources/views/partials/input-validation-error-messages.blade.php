@@ -1,3 +1,3 @@
 @error($inputName)
-<small class=""><i class="text-danger error-message">{{ $message }}</i></small>
+<small><i class="text-danger">{{ $message }}</i></small>
 @enderror
