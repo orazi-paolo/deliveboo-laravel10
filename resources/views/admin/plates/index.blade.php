@@ -132,5 +132,5 @@
 @endsection
 
 @section('add-script')
-    @vite('resources/js/plates/delete-confirmation.js');
+    @vite('resources/js/plates/toast-control.js');
 @endsection
