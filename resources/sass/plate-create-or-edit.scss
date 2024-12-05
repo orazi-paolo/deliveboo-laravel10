@@ -22,6 +22,7 @@
     border-radius: 5px;
     border: 1px solid $turquoise;
 }
+
 .btn-outline-turquoise:hover {
     color: $white;
     background: $turquoise;
@@ -29,13 +30,15 @@
 }
 
 .btn-turquoise {
-    color: black    ;
+    color: white;
     background-color: $turquoise;
     border-radius: 5px;
 }
+
 .btn-turquoise:hover {
-    color: black    ;
-    background-color: $turquoise;
+    color: $turquoise;
+    background-color: transparent;
     opacity: 90%;
     border-radius: 5px;
+    border: 1px solid $turquoise;
 }

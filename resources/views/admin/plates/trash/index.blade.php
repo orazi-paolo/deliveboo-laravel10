@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@section('scss')
+    @vite('resources/sass/plate-create-or-edit.scss')
+@endsection
+
 @section('content')
     <div class="container py-5">
         @include('partials.session-msg')
         <div class="box-buttons mb-3">
-            <a href="{{ route('admin.plates.index') }}" class="btn btn-sm btn-secondary text-decoration-none">
+            <a href="{{ route('admin.plates.index') }}" class="btn btn-sm btn-turquoise text-decoration-none">
                 <i class="bi bi-arrow-left"></i>
                 Back
             </a>

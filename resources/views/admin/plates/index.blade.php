@@ -13,7 +13,7 @@
                 Create new Plate
                 <i class="bi bi-plus"></i>
             </a>
-            <a href="{{ route('admin.plates.deleted-index') }}" type="button" class="btn btn-sm btn-outline-turquoise">
+            <a href="{{ route('admin.plates.deleted-index') }}" type="button" class="btn btn-sm btn-turquoise">
                 Go to bin
                 <i class="bi bi-trash"></i>
             </a>
