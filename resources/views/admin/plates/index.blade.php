@@ -18,7 +18,7 @@
                 <i class="bi bi-trash"></i>
             </a>
         </div>
-        <table class="table align-middle">
+        <table class="table align-middle table-striped table-hover table-responsive">
             <thead>
                 <tr>
                     <th scope="col"><span class="turquoise">Id</span></th>
