@@ -13,7 +13,7 @@
                 Back
             </a>
         </div>
-        <table class="table">
+        <table class="table align-middle">
             <thead>
                 <tr>
                     <th scope="col"><span class="turquoise">Id</span></th>
@@ -26,9 +26,9 @@
                         <p class="d-none d-lg-block turquoise p-0 m-0">Ingredients</p>
                         <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">Ingredients</p>
                     </th>
-                    <th scope="col" class="text-center"><span class="turquoise">Image</span></th>
                     <th scope="col"><span class="turquoise">Price</span></th>
                     <th scope="col"><span class="turquoise">Visible</span></th>
+                    <th scope="col" class="text-center"><span class="turquoise">Image</span></th>
                     <th scope="col"><span class="turquoise">Action</span></th>
                 </tr>
             </thead>
@@ -41,26 +41,27 @@
                         class="rounded-4 shadow">
                 </td> --}}
                         <td>
-                            <p class="d-none d-lg-block">{{ ucwords($plate->name) }}</p>
-                            <p class="d-lg-none text-truncate" style="max-width: 50px;">{{ $plate->name }}
+                            <p class="d-none d-lg-block m-0">{{ ucwords($plate->name) }}</p>
+                            <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->name }}
                         </td>
                         <td>
-                            <p class="d-none d-lg-block" style="max-width: 300px;">
+                            <p class="d-none d-lg-block m-0" style="max-width: 300px;">
                                 {{ substr($plate->description, 0, 50) . '...' }}</p>
-                            <p class="d-lg-none text-truncate" style="max-width: 50px;">{{ $plate->description }}</p>
+                            <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->description }}</p>
                         </td>
                         <td>
-                            <p class="d-none d-lg-block">{{ $plate->ingredient_description }}</p>
-                            <p class="d-lg-none text-truncate" style="max-width: 50px;">{{ $plate->ingredient_description }}
+                            <p class="d-none d-lg-block m-0">{{ $plate->ingredient_description }}</p>
+                            <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
+                                {{ $plate->ingredient_description }}
                             </p>
                         </td>
                         {{-- <td>{{$plate->restaurant->name}}</td> --}}
+                        <td>{{ $plate->price }}&euro;</td>
+                        <td> {{ $plate->visible ? 'Yes' : 'No' }} </td>
                         <td class="text-center">
                             <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
                                 class="img-fluid w-25 rounded-4 shadow">
                         </td>
-                        <td>{{ $plate->price }}&euro;</td>
-                        <td> {{ $plate->visible ? 'Yes' : 'No' }} </td>
 
                         <td>
                             <div class="d-flex gap-1">
