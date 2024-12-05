@@ -39,3 +39,26 @@
     opacity: 90%;
     border-radius: 5px;
 }
+
+.input-instruction{
+    display: none;
+    color: gray;
+    font-size: 10px;
+    font-style: italic;
+    margin: 10px 0;
+
+}
+input::placeholder{
+    font-size: 12px;
+    font-style: italic;
+    filter: opacity(0.5);
+}
+textarea::placeholder{
+    font-size: 12px;
+    font-style: italic;
+    filter: opacity(0.5);
+}
+
+input:focus + .input-instruction {
+    display: block; /* Display input instruction in input focus */
+}
