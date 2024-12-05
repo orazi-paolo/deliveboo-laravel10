@@ -53,11 +53,6 @@
                     <p class="d-lg-none text-truncate" style="max-width: 50px;">{{ $plate->ingredient_description }}
                     </p>
                 </td>
-                {{-- <td>{{$plate->restaurant->name}}</td> --}}
-                {{-- <td>
-                    <img src="{{asset('storage/'.$plate->restaurant->image)}}"
-                        alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
-                </td> --}}
                 <td>{{ $plate->price }}</td>
                 <td> {{ $plate->visible ? 'Yes' : 'No' }} </td>
                 <td class="d-flex gap-1">
