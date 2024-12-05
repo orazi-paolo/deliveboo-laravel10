@@ -1,5 +1,6 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+// @import url('https://fonts.bunny.net/css?family=Nunito');
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic);
 
 // Variables
 @import 'variables';
@@ -8,15 +9,20 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
-img{
+* {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+img {
     max-width: 100%;
 }
 
 
-.logo{
+.logo {
     height: 25px;
 }
-.turquoise{
+
+.turquoise {
     color: $turquoise;
 }
 
@@ -54,5 +60,3 @@ img{
         margin-bottom: 10px;
     }
 }
-
-

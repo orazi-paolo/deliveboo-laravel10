@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId("user_id")->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string("name")->nullable(false);
-            $table->text("description")->nullable();
+            $table->text("description")->nullable(false);
             $table->string("address")->nullable(false);
             $table->string("city")->nullable(false);
             $table->string("VAT")->unique()->nullable(false);
-            $table->text("image")->nullable();
+            $table->text("image")->nullable(false);
             $table->softDeletes();
             $table->timestamps();
         });

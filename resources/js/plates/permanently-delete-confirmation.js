@@ -1,4 +1,4 @@
-const deleteButtons = document.querySelectorAll(".permanently-delete");
+/* const deleteButtons = document.querySelectorAll(".permanently-delete");
 
 deleteButtons.forEach((button) => {
     button.addEventListener("click", function (event) {
@@ -12,3 +12,4 @@ deleteButtons.forEach((button) => {
         }
     });
 });
+ */
