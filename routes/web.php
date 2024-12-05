@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\PlateController as AdminPlateController;
-use App\Http\Controllers\Admin\RestaurantController as AdminRestaurantController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterAdvanceController;
+use App\Http\Controllers\Admin\PlateController as AdminPlateController;
+use App\Http\Controllers\Admin\RestaurantController as AdminRestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/register', [RegisterAdvanceController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [RegisterAdvanceController::class, 'register'])->name('register.submit');
 
 Route::prefix('/admin')->name('admin.')->group(function(){
 
