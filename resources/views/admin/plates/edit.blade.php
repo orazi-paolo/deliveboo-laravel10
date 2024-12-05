@@ -1,13 +1,13 @@
 @extends('admin.plates.layouts.create-or-edit')
 
 @section('form-title')
-Updating {{$plate->name}}
+    Updating {{ $plate->name }}
 @endsection
 
 @section('form-action')
-{{ route('admin.plates.update', $plate)}}
+    {{ route('admin.plates.update', $plate) }}
 @endsection
 
 @section('form-method')
-@method('PUT')
+    @method('PUT')
 @endsection
