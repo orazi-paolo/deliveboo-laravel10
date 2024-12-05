@@ -50,11 +50,11 @@
                             <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->name }}
                         </td>
                         <td>
-                            <p class="d-none d-lg-block m-0">{{ substr($plate->description, 0, 50) . '...' }}</p>
+                            <p class="d-none d-lg-block m-0">{{ substr($plate->description, 0, 30) . '...' }}</p>
                             <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->description }}</p>
                         </td>
                         <td>
-                            <p class="d-none d-lg-block m-0">{{ $plate->ingredient_description }}</p>
+                            <p class="d-none d-lg-block m-0">{{ substr($plate->ingredient_description, 0, 30) . '...' }}</p>
                             <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
                                 {{ $plate->ingredient_description }}
                             </p>
