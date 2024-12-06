@@ -75,12 +75,12 @@
                                 <form action="{{ route('admin.plates.restore', $plate) }}" method="POST">
                                     @csrf
                                     @method('PATCH')
-                                    <button class="btn btn-sm btn-warning delete-btn" type="submit" value="delete"
-                                        delete-data-name="{{ $plate->name }}">
+                                    <button class="btn btn-sm btn-outline-turquoise delete-btn" type="submit"
+                                        value="delete" delete-data-name="{{ $plate->name }}">
                                         <i class="bi bi-arrow-repeat"></i>
                                     </button>
                                 </form>
-                                <button class="btn btn-sm btn-danger" type="button" data-bs-toggle="modal"
+                                <button class="btn btn-sm btn-turquoise" type="button" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop-{{ $plate->id }}">
                                     <i class="bi bi-trash"></i>
                                 </button>

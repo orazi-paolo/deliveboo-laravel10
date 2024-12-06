@@ -82,9 +82,9 @@
                             <div class="d-flex gap-1">
                                 <a href="{{ route('admin.plates.show', $plate) }}" class="btn btn-sm btn-turquoise"><i
                                         class="bi bi-eye-fill"></i></a>
-                                <a href="{{ route('admin.plates.edit', $plate) }}" class="btn btn-sm btn-warning"><i
-                                        class="bi bi-pencil-fill"></i></a>
-                                <button class="btn btn-sm btn-danger" type="button" data-bs-toggle="modal"
+                                <a href="{{ route('admin.plates.edit', $plate) }}"
+                                    class="btn btn-sm btn-outline-turquoise"><i class="bi bi-pencil-fill"></i></a>
+                                <button class="btn btn-sm btn-turquoise" type="button" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop-{{ $plate->id }}">
                                     <i class="bi bi-trash"></i>
                                 </button>
@@ -105,13 +105,13 @@
                                                         class="fw-semibold">{{ $plate->name }}</span>?</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
+                                                <button type="button" class="btn btn-outline-turquoise"
                                                     data-bs-dismiss="modal">Close</button>
                                                 <form action="{{ route('admin.plates.destroy', $plate) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger delete-btn" type="submit" value="delete"
-                                                        delete-data-name="{{ $plate->name }}"><i
+                                                    <button class="btn btn-turquoise delete-btn" type="submit"
+                                                        value="delete" delete-data-name="{{ $plate->name }}"><i
                                                             class="bi bi-trash3-fill"></i></button>
                                                 </form>
                                             </div>
