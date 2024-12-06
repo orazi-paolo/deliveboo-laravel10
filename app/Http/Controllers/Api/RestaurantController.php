@@ -19,7 +19,9 @@ class RestaurantController extends Controller
 
     public function show(Restaurant $restaurant)
     {
-        $restaurant = Restaurant::with("plates", "tipologies")->findOrFail($restaurant->id);
+        $restaurant = Restaurant::with(["plates" => function ($query) {
+            $query->where('visible', true); // Mostra solo i piatti visibili
+        }, "tipologies"])->findOrFail($restaurant->id);
         return response()->json([
             "success" => true,
             "results" => $restaurant
