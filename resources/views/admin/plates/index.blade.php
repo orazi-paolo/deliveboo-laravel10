@@ -44,14 +44,14 @@
                     <tr>
                         <th scope="row">{{ $plate->id }}</th>
                         {{-- <td>
-                    <img src="{{asset('storage/'.$plate->image)}}" alt="{{$plate->name. '\'s image'}}"
+                            <img src="{{asset('storage/'.$plate->image)}}" alt="{{$plate->name. '\'s image'}}"
                         class="rounded-4 shadow">
-                </td> --}}
+                        </td> --}}
                         <td>
                             <p class="d-none d-lg-block m-0">{{ ucwords($plate->name) }}</p>
                             <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->name }}
                         </td>
-                        <td>
+                        <td class="d-none d-sm-table-cell">
                             @if ($plate->description)
                                 <p class="d-none d-lg-block m-0">
                                     {{ substr($plate->description, 0, 30) . '...' }}</p>
@@ -60,7 +60,7 @@
                                 </p>
                             @endif
                         </td>
-                        <td>
+                        <td class="d-none d-sm-table-cell">
                             @if ($plate->ingredient_description)
                                 <p class="d-none d-lg-block m-0">
                                     {{ substr($plate->ingredient_description, 0, 30) . '...' }}
@@ -72,15 +72,21 @@
                         </td>
                         {{-- <td>{{$plate->restaurant->name}}</td> --}}
                         {{-- <td>
-                    <img src="{{asset('storage/'.$plate->restaurant->image)}}"
+                        <img src="{{asset('storage/'.$plate->restaurant->image)}}"
                         alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
-                </td> --}}
+                                </td> --}}
                         <td>{{ $plate->price }}&euro;</td>
                         <td>{{ $plate->visible ? 'Yes' : 'No' }}</td>
-                        <td class="text-center">
+                        {{-- <td class="text-center">
                             @if ($plate->image)
                                 <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
                                     class="img-2 rounded-4 shadow my-2">
+                            @endif
+                        </td> --}}
+                        <td class="text-center d-none d-sm-table-cell">
+                            @if ($plate->image)
+                                <img src="{{ asset('/storage/' . $plate->image) }}" alt="{{ $plate->name . '\'s image' }}"
+                                    class="plate-image rounded-2 shadow my-2">
                             @endif
                         </td>
                         <td>
@@ -125,20 +131,19 @@
                                 </div>
                             </div>
                             {{-- ⬆️⬆️⬆️⬆️⬆️⬆️ Modal ⬆️⬆️⬆️⬆️⬆️⬆️ --}}
-    </div>
-    </td>
-    </tr>
-@empty
-    <tr>
-        <td colspan="7">
-            <h5 class="d-flex justify-content-center fw-semibold">
-                Plates list is empty
-            </h5>
-        </td>
-    </tr>
-    @endforelse
-    </tbody>
-    </table>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="7">
+                            <h5 class="d-flex justify-content-center fw-semibold">
+                                Plates list is empty
+                            </h5>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
     {{-- <div>
         {{ $plates->links() }}

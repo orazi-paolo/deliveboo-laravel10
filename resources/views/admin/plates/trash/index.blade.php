@@ -67,13 +67,12 @@
                         {{-- <td>{{$plate->restaurant->name}}</td> --}}
                         <td>{{ $plate->price }}&euro;</td>
                         <td> {{ $plate->visible ? 'Yes' : 'No' }} </td>
-                        <td class="text-center">
+                        <td class="text-center d-none d-sm-table-cell">
                             @if ($plate->image)
-                                <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
-                                    class="img rounded-4 shadow my-2">
+                                <img src="{{ asset('/storage/' . $plate->image) }}" alt="{{ $plate->name . '\'s image' }}"
+                                    class="plate-image rounded-2 shadow my-2">
                             @endif
                         </td>
-
                         <td>
                             <div class="d-flex gap-1">
                                 <form action="{{ route('admin.plates.restore', $plate) }}" method="POST">
@@ -145,5 +144,5 @@
 @endsection
 
 @section('add-script')
-    @vite('resources/js/plates/permanently-delete-confirmation.js');
+    @vite('resources/js/plates/toast-control.js');
 @endsection
