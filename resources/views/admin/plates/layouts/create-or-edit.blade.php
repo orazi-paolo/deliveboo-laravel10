@@ -11,7 +11,7 @@
 </div>
 <div class="container d-flex justify-content-center">
     {{-- Form --}}
-    <form action="@yield('form-action')" class="form-control w-75 shadow p-5" method="POST"
+    <form action="@yield('form-action')" class="form-control w-md-75 shadow p-5" method="POST"
         enctype="multipart/form-data">
         @csrf
         @yield('form-method')
