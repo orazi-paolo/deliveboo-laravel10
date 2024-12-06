@@ -43,10 +43,6 @@
                 @forelse ($plates as $plate)
                     <tr>
                         <th scope="row">{{ $plate->id }}</th>
-                        {{-- <td>
-                            <img src="{{asset('storage/'.$plate->image)}}" alt="{{$plate->name. '\'s image'}}"
-                        class="rounded-4 shadow">
-                        </td> --}}
                         <td>
                             <p class="d-none d-lg-block m-0">{{ ucwords($plate->name) }}</p>
                             <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->name }}
@@ -70,11 +66,6 @@
                                 </p>
                             @endif
                         </td>
-                        {{-- <td>{{$plate->restaurant->name}}</td> --}}
-                        {{-- <td>
-                        <img src="{{asset('storage/'.$plate->restaurant->image)}}"
-                        alt="{{$plate->restaurant->name. '\'s image'}}" class="rounded-4 shadow">
-                                </td> --}}
                         <td>{{ $plate->price }}&euro;</td>
                         <td>{{ $plate->visible ? 'Yes' : 'No' }}</td>
                         {{-- <td class="text-center">
