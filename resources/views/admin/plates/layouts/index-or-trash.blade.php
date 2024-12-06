@@ -27,19 +27,19 @@
                     <tr>
                         <th scope="col"><span class="turquoise">Id</span></th>
                         <th scope="col"><span class="turquoise">Name</span></th>
-                        <th scope="col" class="d-none d-sm-table-cell">
+                        <th scope="col" class="d-none d-md-table-cell">
                             <p class="d-none d-lg-block turquoise p-0 m-0">Description</p>
                             <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
                                 Description</p>
                         </th>
-                        <th scope="col" class="d-none d-sm-table-cell">
+                        <th scope="col" class="d-none d-md-table-cell">
                             <p class="d-none d-lg-block turquoise p-0 m-0">Ingredients</p>
                             <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
                                 Ingredients</p>
                         </th>
                         <th scope="col"><span class="turquoise">Price</span></th>
                         <th scope="col"><span class="turquoise">Visible</span></th>
-                        <th scope="col" class="text-center d-none d-sm-table-cell"><span class="turquoise">Image</span>
+                        <th scope="col" class="text-center d-none d-md-table-cell"><span class="turquoise">Image</span>
                         </th>
                         <th scope="col"><span class="turquoise">Action</span></th>
                     </tr>
@@ -52,7 +52,7 @@
                                 <p class="d-none d-lg-block m-0">{{ ucwords($plate->name) }}</p>
                                 <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->name }}
                             </td>
-                            <td class="d-none d-sm-table-cell">
+                            <td class="d-none d-md-table-cell">
                                 @if ($plate->description)
                                     <p class="d-none d-lg-block m-0">
                                         {{ substr($plate->description, 0, 30) . '...' }}</p>
@@ -61,7 +61,7 @@
                                     </p>
                                 @endif
                             </td>
-                            <td class="d-none d-sm-table-cell">
+                            <td class="d-none d-md-table-cell">
                                 @if ($plate->ingredient_description)
                                     <p class="d-none d-lg-block m-0">
                                         {{ substr($plate->ingredient_description, 0, 30) . '...' }}
@@ -73,7 +73,7 @@
                             </td>
                             <td>{{ $plate->price }}&euro;</td>
                             <td>{{ $plate->visible ? 'Yes' : 'No' }}</td>
-                            <td class="text-center d-none d-sm-table-cell">
+                            <td class="text-center d-none d-md-table-cell">
                                 @if ($plate->image)
                                     <img src="{{ asset('/storage/' . $plate->image) }}"
                                         alt="{{ $plate->name . '\'s image' }}" class="plate-image rounded-2 shadow my-2">
