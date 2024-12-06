@@ -80,9 +80,6 @@
                                 @if ($plate->image)
                                     <img src="{{ asset('/storage/' . $plate->image) }}"
                                         alt="{{ $plate->name . '\'s image' }}" class="plate-image rounded-2 shadow my-2">
-                                @else
-                                    <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
-                                        class="img-2 rounded-4 shadow my-2">
                                 @endif
                             </td>
                             <td>
@@ -143,9 +140,9 @@
             </table>
         </div>
     </div>
-    {{-- <div>
+    <div>
         {{ $plates->links() }}
-    </div> --}}
+    </div>
     </div>
 @endsection
 

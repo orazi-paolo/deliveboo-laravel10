@@ -132,9 +132,9 @@
             </table>
         </div>
     </div>
-    {{-- <div>
+    <div>
         {{ $plates->links() }}
-    </div> --}}
+    </div>
     </div>
 @endsection
 
