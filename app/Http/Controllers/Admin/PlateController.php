@@ -22,7 +22,7 @@ class PlateController extends Controller
      */
     public function deletedIndex()
     {
-        $plates = Plate::onlyTrashed()->paginate(8);
+        $plates = auth()->user()->restaurant->plates()->onlyTrashed()->get();
 
         return view("admin.plates.trash.index", compact("plates"));
     }
