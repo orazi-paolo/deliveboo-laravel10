@@ -67,8 +67,8 @@
                 <td>{{ $plate->price }}&euro;</td>
                 <td>{{ $plate->visible ? 'Yes' : 'No' }}</td>
                 <td class="text-center">
-                    <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
-                        class="img rounded-4 shadow my-2">
+                    <img src="{{ asset('/storage/'.$plate->image) }}" alt="{{ $plate->name . '\'s image' }}"
+                        class="plate-image rounded-2 shadow my-2">
                 </td>
                 <td>
                     <div class="d-flex gap-1">

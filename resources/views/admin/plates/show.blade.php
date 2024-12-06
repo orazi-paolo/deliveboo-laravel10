@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scss')
+@vite('resources/sass/plate-show.scss')
+@endsection
+
 @section('content')
 <main>
     <div class="container">
@@ -16,10 +20,11 @@
             <div class="col">
                 <h1 class="fw-bold">{{strtoupper($plate->name)}}</h1>
                 <p>
-                    <span class="fw-bold fst-italic">Ingredients:</span> {{strtoupper($plate->ingredient_description)}}
+                    <span class="fw-bold fst-italic text-wrap turquoise">Ingredients:</span>
+                    {{$plate->ingredient_description}}
                 </p>
                 <p>
-                    <span class="fw-bold fst-italic">Description:</span> {{$plate->description}}
+                    <span class="fw-bold fst-italic turquoise">Description:</span> {{$plate->description}}
                 </p>
             </div>
         </div>
