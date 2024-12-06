@@ -28,18 +28,13 @@
         </div>
         @if(session('first_login'))
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
+            @endif
+            <div class="alert alert-success" role="alert">
+                {{ __('You are logged in!') }}
             </div>
         </div>
         @endif
@@ -77,6 +72,14 @@
                         <label class="col-md-4 col-form-label text-md-end turquoise">{{ __('VAT') }}</label>
                         <div class="col-md-6">
                             <p class="form-control-plaintext">{{ $restaurant->VAT }}</p>
+                        </div>
+                        <label class="col-md-4 col-form-label text-md-end turquoise">{{ __('Tipologies') }}</label>
+                        <div class="col-md-6">
+                            <ul class="form-control-plaintext list-unstyled">
+                                @foreach ($restaurant->tipologies as $tipology)
+                                <li>{{ $tipology->name }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>
