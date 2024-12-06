@@ -3,7 +3,7 @@
         aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <i class="bi bi-exclamation-circle me-2"></i>
-            <strong class="me-auto">Attention invalid input!</strong>
+            <strong class="me-auto">{{ ucwords(session('alert-class')) }}</strong>
             <small>{{ \Carbon\Carbon::now()->format('H:i') }}</small>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>

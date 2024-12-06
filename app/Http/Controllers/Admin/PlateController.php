@@ -46,7 +46,7 @@ class PlateController extends Controller
         $plate->forceDelete();
         return redirect()->route("admin.plates.deleted-index")
             ->with('message', "Plate $plate->name has been PERMANENTLY deleted!")
-            ->with('alert-class', "danger");
+            ->with('alert-class', "warning");
     }
 
     /**
@@ -137,7 +137,7 @@ class PlateController extends Controller
         $plate->delete();
 
         return redirect()->route("admin.plates.index")
-        ->with('message', "Plate $plate->name has been deleted successfully!")
-        ->with('alert-class', "danger");
+            ->with('message', "Plate $plate->name has been deleted successfully!")
+            ->with('alert-class', "warning");
     }
 }

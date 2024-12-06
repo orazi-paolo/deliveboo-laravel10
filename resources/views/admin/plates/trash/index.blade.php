@@ -8,10 +8,7 @@
     <div class="container-fluid py-5">
         @include('partials.session-msg')
         <div class="box-buttons mb-3">
-            <a href="{{ route('admin.plates.index') }}" class="btn btn-sm btn-turquoise text-decoration-none">
-                <i class="bi bi-arrow-left"></i>
-                Back
-            </a>
+            @include('partials.go-back-btn')
         </div>
         <table class="table align-middle table-striped table-hover table-responsive">
             <thead>
