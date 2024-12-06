@@ -23,17 +23,19 @@
                 <tr>
                     <th scope="col"><span class="turquoise">Id</span></th>
                     <th scope="col"><span class="turquoise">Name</span></th>
-                    <th scope="col">
+                    <th scope="col" class="d-none d-sm-table-cell">
                         <p class="d-none d-lg-block turquoise p-0 m-0">Decription</p>
-                        <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">Description</p>
+                        <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
+                            Description</p>
                     </th>
-                    <th scope="col">
+                    <th scope="col" class="d-none d-sm-table-cell">
                         <p class="d-none d-lg-block turquoise p-0 m-0">Ingredients</p>
-                        <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">Ingredients</p>
+                        <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
+                            Ingredients</p>
                     </th>
                     <th scope="col"><span class="turquoise">Price</span></th>
                     <th scope="col"><span class="turquoise">Visible</span></th>
-                    <th scope="col" class="text-center"><span class="turquoise">Image</span></th>
+                    <th scope="col" class="text-center d-none d-sm-table-cell"><span class="turquoise">Image</span></th>
                     <th scope="col"><span class="turquoise">Action</span></th>
                 </tr>
             </thead>
@@ -51,14 +53,17 @@
                         </td>
                         <td>
                             @if ($plate->description)
-                                <p class="d-none d-lg-block m-0">{{ substr($plate->description, 0, 30) . '...' }}</p>
-                                <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->description }}
+                                <p class="d-none d-lg-block m-0">
+                                    {{ substr($plate->description, 0, 30) . '...' }}</p>
+                                <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
+                                    {{ $plate->description }}
                                 </p>
                             @endif
                         </td>
                         <td>
                             @if ($plate->ingredient_description)
-                                <p class="d-none d-lg-block m-0">{{ substr($plate->ingredient_description, 0, 30) . '...' }}
+                                <p class="d-none d-lg-block m-0">
+                                    {{ substr($plate->ingredient_description, 0, 30) . '...' }}
                                 </p>
                                 <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
                                     {{ $plate->ingredient_description }}
@@ -118,22 +123,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- ⬆️⬆️⬆️⬆️⬆️⬆️ Modal ⬆️⬆️⬆️⬆️⬆️⬆️ --}}
                             </div>
-                        </td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="7">
-                            <h5 class="d-flex justify-content-center fw-semibold">
-                                Plates list is empty
-                            </h5>
-                        </td>
-                    </tr>
-                @endforelse
-            </tbody>
-        </table>
-        {{-- <div>
+                            {{-- ⬆️⬆️⬆️⬆️⬆️⬆️ Modal ⬆️⬆️⬆️⬆️⬆️⬆️ --}}
+    </div>
+    </td>
+    </tr>
+@empty
+    <tr>
+        <td colspan="7">
+            <h5 class="d-flex justify-content-center fw-semibold">
+                Plates list is empty
+            </h5>
+        </td>
+    </tr>
+    @endforelse
+    </tbody>
+    </table>
+    </div>
+    {{-- <div>
         {{ $plates->links() }}
     </div> --}}
     </div>

@@ -43,10 +43,48 @@
     border: 1px solid $turquoise;
 }
 
-td img.img {
-    width: 120px;
+.input-instruction {
+    display: none;
+    color: gray;
+    font-size: 10px;
+    font-style: italic;
+    margin: 10px 0;
+
 }
 
-td img.img-2 {
-    width: 110px;
+input::placeholder {
+    font-size: 12px;
+    font-style: italic;
+    filter: opacity(0.5);
+}
+
+textarea::placeholder {
+    font-size: 12px;
+    font-style: italic;
+    filter: opacity(0.5);
+}
+
+input:focus+.input-instruction {
+    display: block;
+    /* Display input instruction in input focus */
+}
+
+// td img.img {
+//     width: 200px;
+// }
+
+// td img.img-2 {
+//     width: 130px;
+// }
+
+p {
+    word-break: break-all; // Breake the long words not to pass container
+}
+
+.plate-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: center;
 }
