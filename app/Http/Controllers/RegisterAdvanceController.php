@@ -15,8 +15,8 @@ class RegisterAdvanceController extends Controller
         $validated = $request->validate([
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
-            'name' => 'required',
-            'address' => 'required',
+            'name' => 'required|string|max:255',
+            'address' => 'required,string|max:255',
             'VAT' => 'required|regex:/^[A-Z0-9]{11}$/',
             'tipologies' => 'required|array|min:1',
             'tipologies.*' => 'exists:tipologies,id',
