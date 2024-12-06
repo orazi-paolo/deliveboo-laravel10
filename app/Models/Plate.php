@@ -27,4 +27,19 @@ class Plate extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+
+    public function getCapitalizedName(): string
+    {
+        return ucwords($this->name);
+    }
+
+    public function getTruncatedDescription($description): string
+    {
+        return substr($description, 0, 30) . '...';
+    }
+
+    public function getStorageImage(): string
+    {
+        return asset('/storage/' . $this->image);
+    }
 }

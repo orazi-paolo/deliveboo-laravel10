@@ -49,13 +49,14 @@
                         <tr>
                             <th scope="row">{{ $plate->id }}</th>
                             <td>
-                                <p class="d-none d-lg-block m-0">{{ ucwords($plate->name) }}</p>
+                                <p class="d-none d-lg-block m-0">{{ $plate->getCapitalizedName() }}</p>
                                 <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">{{ $plate->name }}
                             </td>
                             <td class="d-none d-md-table-cell">
                                 @if ($plate->description)
                                     <p class="d-none d-lg-block m-0">
-                                        {{ substr($plate->description, 0, 30) . '...' }}</p>
+                                        {{ $plate->getTruncatedDescription($plate->description) }}
+                                    </p>
                                     <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
                                         {{ $plate->description }}
                                     </p>
@@ -64,7 +65,7 @@
                             <td class="d-none d-md-table-cell">
                                 @if ($plate->ingredient_description)
                                     <p class="d-none d-lg-block m-0">
-                                        {{ substr($plate->ingredient_description, 0, 30) . '...' }}
+                                        {{ $plate->getTruncatedDescription($plate->ingredient_description) }}
                                     </p>
                                     <p class="d-lg-none text-truncate m-0" style="max-width: 50px;">
                                         {{ $plate->ingredient_description }}
@@ -75,8 +76,8 @@
                             <td>{{ $plate->visible ? 'Yes' : 'No' }}</td>
                             <td class="text-center d-none d-md-table-cell">
                                 @if ($plate->image)
-                                    <img src="{{ asset('/storage/' . $plate->image) }}"
-                                        alt="{{ $plate->name . '\'s image' }}" class="plate-image rounded-2 shadow my-2">
+                                    <img src="{{ $plate->getStorageImage() }}" alt="{{ $plate->name . '\'s image' }}"
+                                        class="plate-image rounded-2 shadow my-2">
                                 @else
                                     <img src="{{ $plate->image_placeholder }}" alt="{{ $plate->name . '\'s image' }}"
                                         class="plate-image rounded-2 shadow my-2">
@@ -131,7 +132,6 @@
                                                         data-bs-dismiss="modal">
                                                         Close
                                                     </button>
-
                                                     <form
                                                         action="{{ route(Route::is('admin.plates.index') ? 'admin.plates.destroy' : 'admin.plates.force-delete', $plate) }}"
                                                         method="POST">
