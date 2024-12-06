@@ -34,7 +34,8 @@ class TipologySeeder extends Seeder
         foreach ($tipologies as $tipology) {
             Tipology::create([
                 'name' => $tipology,
-                "image" => "https://placehold.co/600x400?text=Tipology"
+                "image" => null,
+                "image_placeholder" => "https://placehold.co/600x400?text=Tipology"
             ]);
         }
     }

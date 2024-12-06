@@ -15,6 +15,7 @@ class Plate extends Model
     protected $fillable = [
         'restaurant_id',
         'image',
+        'image_placeholder',
         'name',
         'description',
         'ingredient_description',

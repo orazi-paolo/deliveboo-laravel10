@@ -82,6 +82,7 @@ class PlateController extends Controller
 
         }
         $data["restaurant_id"] = auth()->user()->restaurant->id;
+        $data["image_placeholder"] = "https://placehold.co/400x300?text=Plate";
         $plate = Plate::create($data);
 
         return redirect()->route("admin.plates.index")
