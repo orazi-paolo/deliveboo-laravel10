@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('plate_purchase', function (Blueprint $table) {
             $table->foreignId("plate_id")->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId("purchase_id")->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->integer("quantity")->unsigned()->default(1)->nullable();
 
             $table->primary(["plate_id", "purchase_id"]);
         });
