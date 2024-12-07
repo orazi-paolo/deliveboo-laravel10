@@ -35,6 +35,18 @@
     border-color: #808080 !important;
 }
 
+input::placeholder {
+    font-size: 12px;
+    font-style: italic;
+    filter: opacity(0.5);
+}
+
+textarea::placeholder {
+    font-size: 12px;
+    font-style: italic;
+    filter: opacity(0.5);
+}
+
 
 @media (max-width: 768px) {
     .login-m {

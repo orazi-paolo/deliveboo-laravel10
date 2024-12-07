@@ -18,7 +18,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end turquoise">Email *</label>
                             <div class="col-md-6">
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                                    name="email" value="{{ old('email') }}" required>
+                                    name="email" value="{{ old('email') }}" placeholder="e.g., example@example.com"
+                                    required>
                                 @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -26,10 +27,11 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end turquoise">Password *</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end turquoise">Password
+                                *</label>
                             <div class="col-md-6">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                    id="password" name="password" required>
+                                    id="password" name="password" placeholder="e.g., MyP@ssw0rd" required>
                                 @error('password')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -37,10 +39,11 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end turquoise">Business Name *</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end turquoise">Business Name
+                                *</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                    name="name" value="{{ old('name') }}" required>
+                                    name="name" value="{{ old('name') }}" placeholder="e.g., Bella Cucina" required>
                                 @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -51,7 +54,8 @@
                             <label for="address" class="col-md-4 col-form-label text-md-end turquoise">Address *</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('address') is-invalid @enderror"
-                                    id="address" name="address" value="{{ old('address') }}" required>
+                                    id="address" name="address" value="{{ old('address') }}"
+                                    placeholder="e.g., Via Roma 123, 00100 Roma RM" required>
                                 @error('address')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -62,7 +66,7 @@
                             <label for="city" class="col-md-4 col-form-label text-md-end turquoise">City *</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('city') is-invalid @enderror" id="city"
-                                    name="city" value="{{ old('city') }}" required>
+                                    name="city" value="{{ old('city') }}" placeholder="e.g., Roma" required>
                                 @error('city')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -73,7 +77,7 @@
                             <label for="VAT" class="col-md-4 col-form-label text-md-end turquoise">VAT *</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('VAT') is-invalid @enderror" id="VAT"
-                                    name="VAT" value="{{ old('VAT') }}" required>
+                                    name="VAT" value="{{ old('VAT') }}" placeholder="e.g., IT12345678901" required>
                                 @error('VAT')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -81,10 +85,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end turquoise">Description of your business *</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-end turquoise">Description
+                                of your business *</label>
                             <div class="col-md-6">
                                 <textarea class="form-control @error('description') is-invalid @enderror"
-                                    id="description" name="description" rows="4"
+                                    id="description" name="description"
+                                    placeholder="e.g., Traditional Italian cuisine with a modern twist" rows="4"
                                     required>{{ old('description') }}</textarea>
                                 @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -93,7 +99,8 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end turquoise">Image of your business *</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-end turquoise">Image of your
+                                business *</label>
                             <div class="col-md-6">
                                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
                                     name="image" accept="image/*" required>
@@ -104,13 +111,15 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="tipologies" class="col-md-4 col-form-label text-md-end turquoise">Tipologies *</label>
+                            <label for="tipologies" class="col-md-4 col-form-label text-md-end turquoise">Tipologies
+                                *</label>
                             <div class="col-md-6">
                                 @foreach ($tipologies as $tipology)
                                 <div class="form-check">
-                                    <input class="form-check-input @error('tipologies') is-invalid @enderror" type="checkbox"
-                                        name="tipologies[]" id="tipology-{{ $tipology->id }}" value="{{ $tipology->id }}" {{
-                                        in_array($tipology->id, old('tipologies', [])) ? 'checked' : '' }}>
+                                    <input class="form-check-input @error('tipologies') is-invalid @enderror"
+                                        type="checkbox" name="tipologies[]" id="tipology-{{ $tipology->id }}"
+                                        value="{{ $tipology->id }}" {{ in_array($tipology->id, old('tipologies', [])) ?
+                                    'checked' : '' }}>
                                     <label class="form-check-label" for="tipology-{{ $tipology->id }}">
                                         {{ $tipology->name }}
                                     </label>

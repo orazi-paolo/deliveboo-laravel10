@@ -13,11 +13,11 @@ class RegisterAdvanceController extends Controller
     public function register(Request $request)
     {
         $validated = $request->validate([
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
-            'name' => 'required|string|max:255',
-            'address' => 'required,string|max:255',
-            'VAT' => 'required|regex:/^[A-Z0-9]{11}$/',
+            'email' => 'required|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/|unique:users,email',
+            'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])/',
+            'name' => 'required|string',
+            'address' => 'required|string|max:255',
+            'VAT' => 'required|regex:/^[A-Z0-9]{11}$/|unique:restaurants,VAT',
             'tipologies' => 'required|array|min:1',
             'tipologies.*' => 'exists:tipologies,id',
             'city' => 'required|string|max:255',
