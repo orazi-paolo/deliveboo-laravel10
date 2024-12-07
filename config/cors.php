@@ -20,6 +20,7 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => ['*'],
+    /* 'allowed_origins' => [env("APP_VUE_URL")], */
 
     'allowed_origins_patterns' => [],
 
