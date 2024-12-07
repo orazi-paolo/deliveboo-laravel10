@@ -37,22 +37,23 @@ class PlateFactory extends Factory
         ];
 
         $names = [
-            "Spaghetti al Sugo di Pomodoro e Prezzemolo",
-            "Spaghetti alla Carbonara",
-            "Lasagne alla Bolognese",
-            "Penne all'Arrabbiata",
-            "Risotto ai Funghi",
+
+            "Spaghetti with Tomato and Parsley Sauce",
+            "Spaghetti Carbonara",
+            "Lasagna Bolognese",
+            "Penne Arrabbiata",
+            "Mushroom Risotto",
             "Pasta alla Norma",
-            "Ravioli di Ricotta",
-            "Pizza Margherita",
-            "Pizza Quattro Formaggi",
-            "Pizza Capricciosa",
-            "Pizza Diavola",
-            "Pizza con Prosciutto e Funghi",
-            "Tiramisù",
+            "Ricotta Ravioli",
+            "Margherita Pizza",
+            "Four Cheese Pizza",
+            "Capricciosa Pizza",
+            "Diavola Pizza",
+            "Ham and Mushroom Pizza",
+            "Tiramisu",
             "Panna Cotta",
-            "Cannoli Siciliani",
-            "Torta Mimosa",
+            "Sicilian Cannoli",
+            "Mimosa Cake",
             "Profiteroles",
             "Cheesecake",
             "Hamburger",
@@ -65,7 +66,8 @@ class PlateFactory extends Factory
             "Coca Cola",
             "Pepsi",
             "Fanta",
-            "Sprite",
+            "Sprite"
+
         ];
         return [
             "restaurant_id" => Restaurant::inRandomOrder()->first(),
