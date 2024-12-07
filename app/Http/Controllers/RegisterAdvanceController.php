@@ -41,7 +41,7 @@ class RegisterAdvanceController extends Controller
             'city' => $validated['city'],
             'description' => $validated['description'],
             'image' => $imagePath,
-            'image_placeholder' => "https://placehold.co/600x400?text=" . $validated['name'],
+            'image_placeholder' => "https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ]);
 
         $restaurant->tipologies()->sync($validated['tipologies']);

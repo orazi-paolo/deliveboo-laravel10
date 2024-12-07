@@ -38,8 +38,8 @@ class RestaurantFactory extends Factory
             "address" => fake()->streetAddress(),
             "city" => fake()->city(),
             "VAT" => fake()->unique()->bothify("??##?#?##??"),
-            "image" => fake()->randomElement($images),
-            "image_placeholder" => "https://placehold.co/600x400?text=" . fake()->company()
+            "image_placeholder" => fake()->randomElement($images),
+            "image" => null
         ];
     }
 }
