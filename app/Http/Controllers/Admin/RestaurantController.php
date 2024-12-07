@@ -32,6 +32,7 @@ class RestaurantController extends Controller
             'name' => $validated['name'],
             'description' => $validated['description'] ?? null,
             'image' => $validated['image'] ?? null,
+            'image_placeholder' => "https://placehold.co/600x400?text=" . $validated['name'],
             'address' => $validated['address'],
             'city' => $validated['city'],
             'VAT' => $validated['VAT'],
