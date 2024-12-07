@@ -112,7 +112,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7">
+                            <td colspan="8">
                                 <h5 class="d-flex justify-content-center fw-semibold">
                                     Plates list is empty
                                 </h5>
