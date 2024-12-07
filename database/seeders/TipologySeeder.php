@@ -57,12 +57,12 @@ class TipologySeeder extends Seeder
             [
                 "name" => "Mediterranean Cuisine",
                 "image" => "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                "color" => "#D3D3D3"
+                "color" => "#696969"
             ],
             [
                 "name" => "Vegetarian Cuisine",
                 "image" => "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                "color" => "##2E8B57"
+                "color" => "#2E8B57"
             ],
             [
                 "name" => "Vegan Cuisine",
@@ -77,7 +77,7 @@ class TipologySeeder extends Seeder
             [
                 "name" => "Ice Cream",
                 "image" => "https://images.pexels.com/photos/434295/pexels-photo-434295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                "color" => "##EE82EE"
+                "color" => "#EE82EE"
             ],
         ];
 
