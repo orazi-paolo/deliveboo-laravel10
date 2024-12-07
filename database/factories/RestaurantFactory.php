@@ -34,7 +34,7 @@ class RestaurantFactory extends Factory
         return [
             "user_id" => fake()->unique()->randomElement($userIds),
             "name" => fake()->company(),
-            "description" => fake()->realText(),
+            "description" => fake()->paragraph(),
             "address" => fake()->streetAddress(),
             "city" => fake()->city(),
             "VAT" => fake()->unique()->bothify("??##?#?##??"),
