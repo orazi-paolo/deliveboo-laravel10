@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("name")->nullable("false");
             $table->text("image")->nullable();
+            $table->string("image_placeholder")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

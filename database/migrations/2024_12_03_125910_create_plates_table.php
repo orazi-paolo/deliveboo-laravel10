@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal("price", 8, 2, true)->nullable(false);
             $table->boolean("visible")->default(false);
             $table->text("image")->nullable();
+            $table->string("image_placeholder")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

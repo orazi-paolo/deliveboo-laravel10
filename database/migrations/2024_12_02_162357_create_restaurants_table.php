@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string("address")->nullable(false);
             $table->string("city")->nullable(false);
             $table->string("VAT")->unique()->nullable(false);
-            $table->text("image")->nullable(false);
+            $table->text("image")->nullable();
+            $table->text("image_placeholder")->nullable(false);
             $table->softDeletes();
             $table->timestamps();
         });

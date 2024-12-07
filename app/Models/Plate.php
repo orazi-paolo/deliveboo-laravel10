@@ -15,6 +15,7 @@ class Plate extends Model
     protected $fillable = [
         'restaurant_id',
         'image',
+        'image_placeholder',
         'name',
         'description',
         'ingredient_description',
@@ -25,5 +26,20 @@ class Plate extends Model
     public function restaurant(): BelongsTo
     {
         return $this->belongsTo(Restaurant::class);
+    }
+
+    public function getCapitalizedName(): string
+    {
+        return ucwords($this->name);
+    }
+
+    public function getTruncatedDescription($description): string
+    {
+        return substr($description, 0, 30) . '...';
+    }
+
+    public function getStorageImage(): string
+    {
+        return asset('/storage/' . $this->image);
     }
 }

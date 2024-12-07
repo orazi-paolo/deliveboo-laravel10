@@ -19,6 +19,7 @@ class Restaurant extends Model
         'name',
         'description',
         'image',
+        'image_placeholder',
         'address',
         'city',
         'VAT'

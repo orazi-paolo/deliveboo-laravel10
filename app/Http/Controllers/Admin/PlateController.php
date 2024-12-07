@@ -22,7 +22,7 @@ class PlateController extends Controller
      */
     public function deletedIndex()
     {
-        $plates = Plate::onlyTrashed()->paginate(8);
+        $plates = auth()->user()->restaurant->plates()->onlyTrashed()->paginate(8);
 
         return view("admin.plates.trash.index", compact("plates"));
     }
@@ -54,7 +54,7 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = auth()->user()->restaurant->plates;
+        $plates = auth()->user()->restaurant->plates()->paginate(8);
         return view('admin.plates.index', compact('plates'));
     }
 
@@ -82,6 +82,7 @@ class PlateController extends Controller
 
         }
         $data["restaurant_id"] = auth()->user()->restaurant->id;
+        $data["image_placeholder"] = "https://placehold.co/400x300?text=Plate";
         $plate = Plate::create($data);
 
         return redirect()->route("admin.plates.index")
