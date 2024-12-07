@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PlateController;
 use App\Http\Controllers\Api\RestaurantController;
-use App\Models\Restaurant;
+use App\Http\Controllers\Api\TipologyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +34,6 @@ Route::prefix("restaurant")->name("api.restaurants.")->group(function () {
 });
 // Tipology API resources
 Route::prefix("tipologies")->name("api.tipologies.")->group(function () {
-    Route::get('/', [RestaurantController::class, 'index'])->name('index');
-    Route::get('/{tipology}', [RestaurantController::class, 'show'])->name('show');
+    Route::get('/', [TipologyController::class, 'index'])->name('index');
+    Route::get('/{tipology}', [TipologyController::class, 'show'])->name('show');
 });
