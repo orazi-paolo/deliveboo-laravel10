@@ -35,10 +35,7 @@
                     @auth
                         @if (auth()->user()->restaurant)
                             <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.index') }}">
-                                Plates
-                            </a>
-                            <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.create') }}">
-                                Create new plate
+                                Dashboard
                             </a>
                         @endif
                     @endauth
