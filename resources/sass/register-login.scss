@@ -47,6 +47,19 @@ textarea::placeholder {
     filter: opacity(0.5);
 }
 
+.input-instruction {
+    display: none;
+    color: gray;
+    font-size: 10px;
+    font-style: italic;
+    margin: 10px 0;
+
+}
+input:focus+.input-instruction {
+    display: block;
+    /* Display input instruction in input focus */
+}
+
 
 @media (max-width: 768px) {
     .login-m {

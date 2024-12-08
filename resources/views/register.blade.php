@@ -19,7 +19,14 @@
                             <div class="col-md-6">
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
                                     name="email" value="{{ old('email') }}" placeholder="e.g., example@example.com"
-                                    required>
+                                    autocomplete="off" required>
+                                {{-- Instruction Messages --}}
+                                @include('partials.input-instruction', ['instructionMessages' => [
+                                "The email should contain an '@' symbol separating the username and domain.",
+                                "The domain should have a valid extension (e.g., .com, .org, .net).",
+                                "Avoid spaces or special characters other than periods, dashes, or underscores."
+                                ],])
+                                {{-- Error Messages --}}
                                 @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -32,6 +39,14 @@
                             <div class="col-md-6">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
                                     id="password" name="password" placeholder="e.g., MyP@ssw0rd" required>
+                                {{-- Instruction Messages --}}
+                                @include('partials.input-instruction', ['instructionMessages'=>["At least 8 characters
+                                long.",
+                                "At least one lowercase letter (a–z).",
+                                "At least one uppercase letter(A–Z).",
+                                "Atleast one number (0–9).",
+                                "At least one special character (e.g., @, $, !, %, *, #, ?,&)."]])
+                                {{-- Error Messages --}}
                                 @error('password')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -44,6 +59,7 @@
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                                     name="name" value="{{ old('name') }}" placeholder="e.g., Bella Cucina" required>
+                                {{-- Error Messages --}}
                                 @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -56,6 +72,7 @@
                                 <input type="text" class="form-control @error('address') is-invalid @enderror"
                                     id="address" name="address" value="{{ old('address') }}"
                                     placeholder="e.g., Via Roma 123, 00100 Roma RM" required>
+                                {{-- Error Messages --}}
                                 @error('address')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -67,6 +84,7 @@
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('city') is-invalid @enderror" id="city"
                                     name="city" value="{{ old('city') }}" placeholder="e.g., Roma" required>
+                                {{-- Error Mesages --}}
                                 @error('city')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -77,7 +95,15 @@
                             <label for="VAT" class="col-md-4 col-form-label text-md-end turquoise">VAT *</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('VAT') is-invalid @enderror" id="VAT"
-                                    name="VAT" value="{{ old('VAT') }}" placeholder="e.g., IT12345678901" required>
+                                    name="VAT" value="{{ old('VAT') }}" placeholder="e.g., IT12345678901"
+                                    autocomplete="off" required>
+                                {{-- Instruction Messages --}}
+                                @include('partials.input-instruction', ['instructionMessages' => [
+                                "Enter a valid VAT number consisting of exactly 11 characters.",
+                                "Ensure the VAT number is in uppercase letters and/or digits (e.g., 'IT123456789').",
+                                "The format should not include any spaces, dashes, or special characters."
+                                ],])
+                                {{-- Error Messages --}}
                                 @error('VAT')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -92,6 +118,7 @@
                                     id="description" name="description"
                                     placeholder="e.g., Traditional Italian cuisine with a modern twist" rows="4"
                                     required>{{ old('description') }}</textarea>
+                                {{-- Error Messages --}}
                                 @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -104,6 +131,12 @@
                             <div class="col-md-6">
                                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
                                     name="image" accept="image/*" required>
+                                {{-- Instruction Messages --}}
+                                @include('partials.input-instruction', ['instructionMessages' => [
+                                'The uploaded file must not exceed 2 MB in
+                                size (2048 kilobytes).'
+                                ], 'class'=>'d-block'])
+                                {{-- Error Messages --}}
                                 @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -125,6 +158,11 @@
                                     </label>
                                 </div>
                                 @endforeach
+                                {{-- Instruction Messages --}}
+                                @include('partials.input-instruction', ['instructionMessages' => [
+                                "Select at least one tipology from the available options.",
+                                ], 'class'=>'d-block'])
+                                {{-- Error Messages --}}
                                 @error('tipologies')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                                 @enderror
