@@ -26,8 +26,11 @@
                 <label for="image" class="form-label turquoise">Choose Image</label>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image"
                     value="{{ old('name', $plate->image) }}">
-                @include('partials.input-instruction', ['instructionText'=>'The uploaded file must not exceed 2 MB in
-                size (2048 kilobytes).', 'class'=>'d-block'])
+                {{-- Instruction Messages --}}
+                @include('partials.input-instruction', ['instructionMessages' => [
+                'The uploaded file must not exceed 2 MB in
+                size (2048 kilobytes).'
+                ], 'class'=>'d-block'])
                 {{-- Errors message --}}
                 @error('image')
                 @include('partials.input-validation-error-messages')
@@ -41,8 +44,9 @@
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
                     value="{{ old('name', $plate->name) }}" placeholder="e.g., Spaghetti Carbonara" autocomplete="off"
                     required>
-                @include('partials.input-instruction',['instructionText'=>'This field is required and must be a text
-                input no longer than 255 characters.'])
+                {{--Instruction Messages --}}
+                @include('partials.input-instruction',['instructionMessages'=>[
+                'The Plate name must be a text input no longer than 255 characters.'],])
                 {{-- Errors message --}}
                 @error('name')
                 @include('partials.input-validation-error-messages')
@@ -81,10 +85,10 @@
                 <label for="price" class="form-label turquoise">Price *</label>
                 <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price"
                     id="price" value="{{ old('price', $plate->price) }}" placeholder="e.g., 123.00" required>
-                @include('partials.input-instruction', ['instructionText'=>'This field is required and must be a number
-                with up to 6 digits before
-                the decimal
-                point. And up to 2 digits after the decimal point.'])
+                {{-- Instruction Messages --}}
+                @include('partials.input-instruction', ['instructionMessages'=>[
+                'The price must be a number with up to 6 digits before the decimal point.',
+                'And up to 2 digits after the decimal point.'],])
                 {{-- Errors message --}}
                 @error('price')
                 @include('partials.input-validation-error-messages')
@@ -97,8 +101,9 @@
                 <input type="checkbox" name="visible" class="form-check-input @error('visible') is-invalid @enderror"
                     value="1" id="visible" {{ old('visible', $plate->visible ?? false) ? 'checked' : '' }}>
                 <label for="visible" class="form-check-label turquoise">Visible</label>
-                @include('partials.input-instruction', ['instructionText'=>'If checked, the plate will be published
-                directly on the website.', 'class'=>'d-block'])
+                {{-- Instruction Messages --}}
+                @include('partials.input-instruction', ['instructionMessages'=>['If checked, the plate will be published
+                directly on the website.',], 'class'=>'d-block'])
                 {{-- Errors message --}}
                 @error('visible')
                 @include('partials.input-validation-error-messages')
