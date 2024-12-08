@@ -1,1 +1,7 @@
-<small class="input-instruction {{$class ?? ''}}">{{$instructionText}}</small>
+<small class="input-instruction {{$class ?? ''}}">
+    <ul>
+        @foreach ($instructionMessages as $instructionMessage )
+        <li>{{$instructionMessage}}</li>
+        @endforeach
+    </ul>
+</small>
