@@ -15,7 +15,8 @@ class Tipology extends Model
     protected $fillable = [
         "name",
         "image",
-        "image_placeholder"
+        "image_placeholder",
+        "color"
     ];
 
     public function restaurants(): BelongsToMany

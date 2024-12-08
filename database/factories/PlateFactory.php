@@ -35,10 +35,44 @@ class PlateFactory extends Factory
             "https://images.pexels.com/photos/29653209/pexels-photo-29653209/free-photo-of-pollo-fritto-croccante-con-salsa-di-accompagnamento-vista-dall-alto.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "https://images.pexels.com/photos/29653204/pexels-photo-29653204/free-photo-of-patatine-fritte-croccanti-con-salsa-cremosa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         ];
+
+        $names = [
+
+            "Spaghetti with Tomato and Parsley Sauce",
+            "Spaghetti Carbonara",
+            "Lasagna Bolognese",
+            "Penne Arrabbiata",
+            "Mushroom Risotto",
+            "Pasta alla Norma",
+            "Ricotta Ravioli",
+            "Margherita Pizza",
+            "Four Cheese Pizza",
+            "Capricciosa Pizza",
+            "Diavola Pizza",
+            "Ham and Mushroom Pizza",
+            "Tiramisu",
+            "Panna Cotta",
+            "Sicilian Cannoli",
+            "Mimosa Cake",
+            "Profiteroles",
+            "Cheesecake",
+            "Hamburger",
+            "Cheeseburger",
+            "Double Cheeseburger",
+            "Chicken Nuggets",
+            "Chicken Tenders",
+            "Chicken Wings",
+            "Chicken Fingers",
+            "Coca Cola",
+            "Pepsi",
+            "Fanta",
+            "Sprite"
+
+        ];
         return [
             "restaurant_id" => Restaurant::inRandomOrder()->first(),
-            "name" => fake()->word(),
-            "description" => fake()->realText(),
+            "name" => fake()->randomElement($names),
+            "description" => fake()->paragraph(),
             "ingredient_description" => implode(",", fake()->words()),
             "price" => fake()->randomFloat(2, 1, 30),
             "visible" => fake()->boolean(),

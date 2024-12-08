@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("name")->nullable("false");
             $table->text("image")->nullable();
             $table->string("image_placeholder")->nullable();
+            $table->char("color", 9)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
