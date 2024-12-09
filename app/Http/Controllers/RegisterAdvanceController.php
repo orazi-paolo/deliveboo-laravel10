@@ -36,7 +36,9 @@ class RegisterAdvanceController extends Controller
 
         $restaurant->tipologies()->sync($validated['tipologies']);
 
-        return redirect()->route('login')->with('success', 'Registration completed successfully!');
+        return redirect()->route('login')
+            ->with('message', 'Registration completed successfully!')
+            ->with('alert-class', 'success');
     }
 
     public function showRegisterForm()

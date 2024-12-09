@@ -1,5 +1,5 @@
 @if (session('message'))
-    <div class="toast text-bg-{{ session('alert-class') }} position-fixed top-10 end-5" role="alert"
+    <div class="toast text-bg-{{ session('alert-class') }} position-fixed top-10 end-5 z-1" role="alert"
         aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <i class="bi bi-exclamation-circle me-2"></i>
