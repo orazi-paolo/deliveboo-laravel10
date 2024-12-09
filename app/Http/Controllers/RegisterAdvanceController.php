@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterAdvanceRequest;
 use App\Models\User;
 use App\Models\Tipology;
 use App\Models\Restaurant;
@@ -10,20 +11,9 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterAdvanceController extends Controller
 {
-    public function register(Request $request)
+    public function register(RegisterAdvanceRequest $request)
     {
-        $validated = $request->validate([
-            'email' => 'required|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/|unique:users,email',
-            'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])/',
-            'name' => 'required|string',
-            'address' => 'required|string|max:255',
-            'VAT' => 'required|regex:/^[A-Z0-9]{11}$/|unique:restaurants,VAT',
-            'tipologies' => 'required|array|min:1',
-            'tipologies.*' => 'exists:tipologies,id',
-            'city' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        $validated = $request->validated();
 
 
         $user = User::create([
