@@ -60,6 +60,10 @@ input:focus+.input-instruction {
     /* Display input instruction in input focus */
 }
 
+.navbar-brand:hover{
+    color: $turquoise !important;
+}
+
 
 @media (max-width: 768px) {
     .login-m {

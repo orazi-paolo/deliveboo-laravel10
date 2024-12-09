@@ -65,6 +65,10 @@ img {
     color: #009c99;
 }
 
+.navbar-brand:hover {
+    color: $turquoise !important;
+}
+
 @media (max-width: 768px) {
     .login-m {
         margin-top: 10px;
