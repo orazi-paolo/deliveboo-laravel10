@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreOrUpdatePlateRequest;
+use App\Models\Restaurant;
+
+use function Laravel\Prompts\error;
 
 class PlateController extends Controller
 {
@@ -20,34 +23,34 @@ class PlateController extends Controller
     /**
      * Display a listing of the deleted resources.
      */
-    public function deletedIndex()
-    {
-        $plates = auth()->user()->restaurant->plates()->onlyTrashed()->paginate(8);
+    // public function deletedIndex()
+    // {
+    //     $plates = auth()->user()->restaurant->plates()->onlyTrashed()->paginate(8);
 
-        return view("admin.plates.trash.index", compact("plates"));
-    }
+    //     return view("admin.plates.trash.index", compact("plates"));
+    // }
 
     /**
      * Retore the deleted resources.
      */
-    public function restore(Plate $plate)
-    {
-        $plate->restore();
-        return redirect()->route("admin.plates.index")
-            ->with('message', "Plate $plate->name has been restored succesfully!")
-            ->with('alert-class', "success");
-    }
+    // public function restore(Plate $plate)
+    // {
+    //     $plate->restore();
+    //     return redirect()->route("admin.plates.index")
+    //         ->with('message', "Plate $plate->name has been restored succesfully!")
+    //         ->with('alert-class', "success");
+    // }
 
     /**
      * Permanently Delete resources.
      */
-    public function forceDelete(Plate $plate)
-    {
-        $plate->forceDelete();
-        return redirect()->route("admin.plates.deleted-index")
-            ->with('message', "Plate $plate->name has been PERMANENTLY deleted!")
-            ->with('alert-class', "warning");
-    }
+    // public function forceDelete(Plate $plate)
+    // {
+    //     $plate->forceDelete();
+    //     return redirect()->route("admin.plates.deleted-index")
+    //         ->with('message', "Plate $plate->name has been PERMANENTLY deleted!")
+    //         ->with('alert-class', "warning");
+    // }
 
     /**
      * Display a listing of the resource.
@@ -78,7 +81,7 @@ class PlateController extends Controller
         // If the file in image requst exist
         if ($request->hasFile('image')) {
             $filepath = Storage::disk('public')->put('image/plate', $request->image); // Save image in Storage public disk
-            $data['image'] = $filepath; // Rewrite the image value
+            $data['image'] = url('storage/' . $filepath); // Rewrite the image value
 
         }
         $data["restaurant_id"] = auth()->user()->restaurant->id;
@@ -95,7 +98,13 @@ class PlateController extends Controller
      */
     public function show(Plate $plate)
     {
+        // Check if this plate belong to loged in restaurant.
+        if (auth()->user()->restaurant->plates->contains($plate)) {
         return view('admin.plates.show', compact('plate'));
+        }else{
+            return view('partials.not-found-error');
+        }
+
     }
 
     /**
@@ -103,7 +112,12 @@ class PlateController extends Controller
      */
     public function edit(Plate $plate)
     {
+        // Check if this plate belong to loged in restaurant.
+        if (auth()->user()->restaurant->plates->contains($plate)) {
         return view('admin.plates.edit', compact('plate'));
+        }else{
+            return view('partials.not-found-error');
+        }
     }
 
     /**
@@ -120,7 +134,7 @@ class PlateController extends Controller
             }
 
             $filePath = Storage::disk("public")->put("img/plates/", $request->image); // Store new value of image in Storage public disk
-            $data["image"] = $filePath; // Rewrite image value
+            $data["image"] = url('storage/' . $filePath); // Rewrite image value
         }
 
         $plate->update($data);

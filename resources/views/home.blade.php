@@ -37,7 +37,7 @@
                     {{--                     <div class="alert alert-success" role="alert">
                         {{ __('You are logged in!') }}
                     </div> --}}
-                    <div class="toast text-bg-success position-fixed top-5 end-5" role="alert" aria-live="assertive"
+                    <div class="toast text-bg-success position-fixed top-5 end-5 z-1" role="alert" aria-live="assertive"
                         aria-atomic="true">
                         <div class="toast-header">
                             <i class="bi bi-exclamation-circle me-2"></i>
@@ -62,8 +62,7 @@
                     <div class="card-body">
                         <div class="row mb-3 justify-content-center">
                             <div class="col-md-6 d-flex justify-content-center">
-                                <img src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}"
-                                    class="img-fluid">
+                                <img src="{{ $restaurant->image }}" alt="{{ $restaurant->name }}" class="img-fluid">
                             </div>
                         </div>
                         <div class="row mb-3">
