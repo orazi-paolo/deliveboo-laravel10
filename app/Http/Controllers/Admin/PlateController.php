@@ -81,7 +81,7 @@ class PlateController extends Controller
         // If the file in image requst exist
         if ($request->hasFile('image')) {
             $filepath = Storage::disk('public')->put('image/plate', $request->image); // Save image in Storage public disk
-            $data['image'] = $filepath; // Rewrite the image value
+            $data['image'] = url('storage/' . $filepath); // Rewrite the image value
 
         }
         $data["restaurant_id"] = auth()->user()->restaurant->id;
@@ -134,7 +134,7 @@ class PlateController extends Controller
             }
 
             $filePath = Storage::disk("public")->put("img/plates/", $request->image); // Store new value of image in Storage public disk
-            $data["image"] = $filePath; // Rewrite image value
+            $data["image"] = url('storage/' . $filePath); // Rewrite image value
         }
 
         $plate->update($data);
