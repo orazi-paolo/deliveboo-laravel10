@@ -23,6 +23,8 @@ class RegisterAdvanceController extends Controller
             'name' => $validated['name'],
         ]);
 
+        Auth::login($user);
+
         $imagePath = $request->file('image')->store('restaurants', 'public');
         $restaurant = Restaurant::create([
             'user_id' => $user->id,
@@ -37,7 +39,7 @@ class RegisterAdvanceController extends Controller
 
         $restaurant->tipologies()->sync($validated['tipologies']);
 
-        return redirect()->route('login')
+        return redirect()->route('home')
             ->with('message', 'Registration completed successfully!')
             ->with('alert-class', 'success');
     }
