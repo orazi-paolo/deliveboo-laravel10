@@ -90,10 +90,12 @@
                     <td>
                         <div class="d-flex gap-1">
                             @if (Route::is('admin.plates.index'))
-                            <a href="{{ route('admin.plates.show', $plate) }}" class="btn btn-sm btn-turquoise"><i
-                                    class="bi bi-eye-fill"></i></a>
-                            <a href="{{ route('admin.plates.edit', $plate) }}"
-                                class="btn btn-sm btn-outline-turquoise"><i class="bi bi-pencil-fill"></i></a>
+                            <a href="{{ route('admin.plates.show', $plate) }}" class="btn btn-sm btn-turquoise">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
+                            <a href="{{ route('admin.plates.edit', $plate) }}" class="btn btn-sm btn-outline-turquoise">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
                             @else
                             <form action="{{ route('admin.plates.restore', $plate) }}" method="POST">
                                 @csrf

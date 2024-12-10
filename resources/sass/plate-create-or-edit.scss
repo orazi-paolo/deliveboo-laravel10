@@ -65,17 +65,8 @@ textarea::placeholder {
 }
 
 input:focus+.input-instruction {
-    display: block;
-    /* Display input instruction in input focus */
+    display: block; /* Display input instruction in input focus */
 }
-
-// td img.img {
-//     width: 200px;
-// }
-
-// td img.img-2 {
-//     width: 130px;
-// }
 
 p {
     word-break: break-all; // Breake the long words not to pass container

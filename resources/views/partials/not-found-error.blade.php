@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-<div class="container d-flex justify-content-center algne-item-center">
-    <h1 class="turquoise">THIS PAGE IS NOT FOUND</h1>
+<div class="container">
+    @include('partials.go-back-btn')
+    <h1 class="turquoise text-center my-5">THIS PAGE IS NOT FOUND</h1>
 </div>
 @endsection
