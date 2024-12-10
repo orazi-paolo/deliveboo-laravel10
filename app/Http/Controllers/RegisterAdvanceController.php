@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegisterAdvanceRequest;
 use App\Models\User;
 use App\Models\Tipology;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\RegisterAdvanceRequest;
 
 class RegisterAdvanceController extends Controller
 {
@@ -43,6 +44,9 @@ class RegisterAdvanceController extends Controller
 
     public function showRegisterForm()
     {
+        if (Auth::check()) {
+        return redirect()->route('home');
+        }
         $tipologies = Tipology::all();
         return view('register', compact('tipologies'));
     }
