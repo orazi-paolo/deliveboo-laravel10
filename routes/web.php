@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\PlateController as AdminPlateController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('register');
+    return redirect()->route('login');
 });
 
 Auth::routes(['verify' => true]);
