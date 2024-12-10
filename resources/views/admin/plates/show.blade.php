@@ -16,7 +16,7 @@
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 my-5 g-5">
                 <div class="col">
                     @if ($plate->image)
-                        <img src="{{ $plate->getStorageImage() }}" alt="{{ $plate->name . '\'s image' }}"
+                        <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
                             class="plate-image rounded-2 shadow my-2">
                     @else
                         <img src="{{ $plate->image_placeholder }}" alt="{{ $plate->name . '\'s image' }}"

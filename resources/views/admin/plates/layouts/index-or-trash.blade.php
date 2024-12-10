@@ -76,7 +76,7 @@
                             <td>{{ $plate->visible ? 'Yes' : 'No' }}</td>
                             <td class="text-center d-none d-md-table-cell">
                                 @if ($plate->image)
-                                    <img src="{{ $plate->getStorageImage() }}" alt="{{ $plate->name . '\'s image' }}"
+                                    <img src="{{ $plate->image }}" alt="{{ $plate->name . '\'s image' }}"
                                         class="plate-image rounded-2 shadow my-2">
                                 @else
                                     <img src="{{ $plate->image_placeholder }}" alt="{{ $plate->name . '\'s image' }}"

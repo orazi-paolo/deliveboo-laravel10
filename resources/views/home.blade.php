@@ -62,7 +62,7 @@
                     <div class="card-body">
                         <div class="row mb-3 justify-content-center">
                             <div class="col-md-6 d-flex justify-content-center">
-                                <img src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}"
+                                <img src="{{ $restaurant->image }}" alt="{{ $restaurant->name }}"
                                     class="img-fluid">
                             </div>
                         </div>
