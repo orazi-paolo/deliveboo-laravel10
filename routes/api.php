@@ -2,9 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Api\PlateController;
-use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TipologyController;
+use App\Http\Controllers\Api\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::prefix("tipologies")->name("api.tipologies.")->group(function () {
     Route::get('/', [TipologyController::class, 'index'])->name('index');
     Route::get('/{tipology}', [TipologyController::class, 'show'])->name('show');
 });
+
+// Payment API
+Route::post('/checkout', [PaymentController::class, 'checkout']);
