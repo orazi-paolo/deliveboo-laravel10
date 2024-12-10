@@ -41,3 +41,4 @@ Route::prefix("tipologies")->name("api.tipologies.")->group(function () {
 
 // Payment API
 Route::post('/checkout', [PaymentController::class, 'checkout']);
+Route::get('/client-token', [PaymentController::class, 'getClientToken']);
