@@ -108,7 +108,6 @@
     </div>
 @endsection
 
-
 @section('add-script')
     @vite('resources/js/plates/toast-control.js');
 @endsection

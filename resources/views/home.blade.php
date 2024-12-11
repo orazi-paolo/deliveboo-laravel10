@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('scss')
-    @vite('resources/scss/register-login.scss')
+    @vite('resources/sass/register-login.scss')
 @endsection
 
 @section('content')
@@ -58,11 +58,15 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-header fw-bold turquoise">{{ __('Your restaurant details') }}</div>
-
                     <div class="card-body">
                         <div class="row mb-3 justify-content-center">
                             <div class="col-md-6 d-flex justify-content-center">
-                                <img src="{{ $restaurant->image }}" alt="{{ $restaurant->name }}" class="img-fluid">
+                                @if ($restaurant->image)
+                                    <img src="{{ $restaurant->image }}" alt="{{ $restaurant->name }}" class="img-fluid">
+                                @else
+                                    <img src="{{ $restaurant->image_placeholder }}" alt="{{ $restaurant->name }}"
+                                        class="img-fluid rounded">
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-3">
