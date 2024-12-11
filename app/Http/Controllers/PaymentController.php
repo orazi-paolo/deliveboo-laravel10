@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Purchase;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
+use DateTime;
 
 class PaymentController extends Controller
 {
@@ -37,6 +39,11 @@ class PaymentController extends Controller
             'payment_method_nonce' => 'required',
             'total' => 'required|numeric|min:0.01',
             'name' => 'required|string',
+            'email' => 'required|email',
+            'phone_number' => 'required|string',
+            'address' => 'required|string',
+            'city' => 'required|string',
+            'restaurant_id' => 'required|exists:restaurants,id',
         ]);
 
         $result = $this->gateway->transaction()->sale([
@@ -50,6 +57,16 @@ class PaymentController extends Controller
 
 
         if ($result->success) {
+            $purchase = Purchase::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone_number' => $request->phone_number,
+                'address' => $request->address,
+                'city' => $request->city,
+                'restaurant_id' => $request->restaurant_id,
+                'total' => $request->total,
+                'date' => now(),
+            ]);
             return response()->json([
                 'success' => true,
                 'message' => 'Pagamento avvenuto con successo!',
