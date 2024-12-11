@@ -44,4 +44,9 @@ class Plate extends Model
     {
         return asset('/storage/' . $this->image);
     }
+
+    public function purchases()
+    {
+        return $this->belongsToMany(Purchase::class);
+    }
 }
