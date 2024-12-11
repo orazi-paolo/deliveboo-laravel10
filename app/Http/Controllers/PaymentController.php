@@ -44,6 +44,7 @@ class PaymentController extends Controller
             'address' => 'required|string',
             'city' => 'required|string',
             'restaurant_id' => 'required|exists:restaurants,id',
+            'plates' => 'required|array',
         ]);
 
         $result = $this->gateway->transaction()->sale([
@@ -67,6 +68,12 @@ class PaymentController extends Controller
                 'total' => $request->total,
                 'date' => now(),
             ]);
+            $plates = [];
+            foreach($request->plates as $plate) {
+                $plates[$plate['id']] = ['quantity' => $plate['quantity']];
+            }
+            $purchase->plates()->attach($plates);
+
             return response()->json([
                 'success' => true,
                 'message' => 'Pagamento avvenuto con successo!',
