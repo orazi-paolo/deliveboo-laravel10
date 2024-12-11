@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,7 @@ class Restaurant extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'slug',
         'description',
         'image',
         'image_placeholder',
@@ -42,5 +44,17 @@ class Restaurant extends Model
     public function plates(): HasMany
     {
         return $this->hasMany(Plate::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($restaurant) {
+            // Generate the slug only if it is absent or the name has changed
+            if (!$restaurant->slug || $restaurant->isDirty('name')) {
+                $restaurant->slug = Str::slug($restaurant->name, '-');
+            }
+        });
     }
 }

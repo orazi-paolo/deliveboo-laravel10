@@ -17,11 +17,11 @@ class RestaurantController extends Controller
         ]);
     }
 
-    public function show(Restaurant $restaurant)
+    public function show($slug)
     {
         $restaurant = Restaurant::with(["plates" => function ($query) {
             $query->where('visible', true); // Mostra solo i piatti visibili
-        }, "tipologies"])->findOrFail($restaurant->id);
+        }, "tipologies"])->where('slug', $slug)->firstOrFail();
         return response()->json([
             "success" => true,
             "results" => $restaurant
