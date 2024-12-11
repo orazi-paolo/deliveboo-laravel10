@@ -37,8 +37,8 @@
                             <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.index') }}">
                                 Plates
                             </a>
-                            <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.plates.create') }}">
-                                Create new plate
+                            <a class="navbar-brand fs-6 turquoise" href="{{ route('admin.purchases.index') }}">
+                                Purchases
                             </a>
                         @endif
                     @endauth

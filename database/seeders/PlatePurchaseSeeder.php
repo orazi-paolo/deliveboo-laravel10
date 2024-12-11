@@ -18,7 +18,7 @@ class PlatePurchaseSeeder extends Seeder
         $plates = Plate::all()->pluck("id");
 
         foreach ($purchases as $purchase) {
-            $purchase->plates()->sync($this->getRandomPlates($plates));
+            $purchase->plates()->attach($this->getRandomPlates($plates), ['quantity' => rand(1, 5)]);
         }
     }
 
