@@ -7,6 +7,7 @@
 @section('content')
     <div class="container-fluid py-5">
         @include('partials.session-msg')
+        <h2 class="mb-4 text-success">Total Orders: {{ $orderCount }}</h2>
         <div class="box-buttons mb-3">
             @include('partials.go-back-btn', ['route' => 'admin.plates.index'])
         </div>
