@@ -79,6 +79,7 @@ class PaymentController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Pagamento avvenuto con successo!',
+                'order' => $purchase,
             ]);
         } else {
             return response()->json([
