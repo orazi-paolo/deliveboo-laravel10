@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterAdvanceController;
 use App\Http\Controllers\Admin\PlateController as AdminPlateController;
 use App\Http\Controllers\Admin\PurchaseController as AdminPurchaseController;
+use App\Http\Controllers\Admin\PurchaseStatisticsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,4 +39,7 @@ Route::prefix('/admin')->name('admin.')->group(function () {
     Route::get('purchases', [AdminPurchaseController::class, 'index'])->name('purchases.index');
     Route::get('purchases/{purchase}', [AdminPurchaseController::class, 'show'])->name('purchases.show');
     Route::delete('purchases/{purchase}', [AdminPurchaseController::class, 'destroy'])->name('purchases.destroy');
+
+    // statistics
+    Route::get('/statistics', [PurchaseStatisticsController::class, 'index'])->name('statistics.index');
 });
