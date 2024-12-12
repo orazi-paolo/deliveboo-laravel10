@@ -9,6 +9,10 @@
         @include('partials.session-msg')
         <div class="box-buttons mb-3">
             @include('partials.go-back-btn', ['route' => 'admin.plates.index'])
+            <a class="btn btn-sm btn-turquoise text-decoration-none" href="{{ route('admin.statistics.index')}}">
+                    <i class="bi bi-graph-up"></i>
+                    Statistics
+            </a>
         </div>
         <div class="table-responsive">
             <table class="table align-middle table-hover table-striped">
