@@ -15,7 +15,7 @@
 @section('content')
 <div class="container">
     <h1>Statistiche degli Ordini</h1>
-    <div style="width: 80%; margin: 50px auto;">
+    <div style="width: 90%; margin: 50px auto;">
         <canvas id="ordersChart"></canvas>
     </div>
 </div>
