@@ -7,6 +7,7 @@
 @section('content')
     <div class="container-fluid py-5">
         @include('partials.session-msg')
+        <h2 class="mb-4 text-center turquoise border-bottom pb-2 fw-bold">Total Orders: {{ $orderCount }}</h2>
         <div class="box-buttons mb-3">
             @include('partials.go-back-btn', ['route' => 'admin.plates.index'])
             <a class="btn btn-sm btn-turquoise text-decoration-none" href="{{ route('admin.statistics.index')}}">
@@ -24,25 +25,13 @@
                         <th scope="col">
                             <span class="turquoise">Name</span>
                         </th>
-                        <th scope="col" class="d-none d-lg-table-cell">
-                            <p class="d-none d-lg-block turquoise p-0 m-0">Email</p>
-                            <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
-                                Email</p>
-                        </th>
-                        <th scope="col" class="d-none d-lg-table-cell">
-                            <p class="d-none d-lg-block turquoise p-0 m-0">Phone</p>
-                            <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
-                                Phone Number</p>
-                        </th>
-                        <th scope="col"><span class="turquoise">Address</span></th>
-                        <th scope="col" class="d-none d-lg-table-cell">
-                            <p class="d-none d-lg-block turquoise p-0 m-0">City</p>
-                            <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
-                                City</p>
-                        </th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Email</span></th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Phone</span></th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Address</span></th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">City</span></th>
                         <th scope="col"><span class="turquoise">Date</span></th>
                         <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Total</span></th>
-                        <th scope="col"><span class="turquoise">Action</span></th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Action</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,7 +57,7 @@
                                 </p>
                             </td>
                             {{-- Address --}}
-                            <td>
+                            <td class="d-none d-lg-table-cell">
                                 <p class="m-0">{{ $purchase->address }}</p>
                             </td>
                             {{-- City --}}
@@ -78,18 +67,18 @@
                             {{-- Total --}}
                             <td class="d-none d-lg-table-cell">{{ $purchase->total }}&euro;</td>
                             {{-- Actions --}}
-                            <td>
+                            <td >
                                 <div class="d-flex gap-1">
                                     <a href="{{ route('admin.purchases.show', $purchase) }}"
                                         class="btn btn-sm btn-turquoise">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
-                                    <button class="btn btn-sm btn-turquoise" type="button" data-bs-toggle="modal"
+                                    {{-- <button class="btn btn-sm btn-turquoise" type="button" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop-{{ $purchase->id }}">
                                         <i class="bi bi-trash"></i>
-                                    </button>
+                                    </button> --}}
                                     {{-- ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ Modal ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ --}}
-                                    @include('partials.delete-modal', ['purchase' => $purchase])
+                                    {{-- @include('partials.delete-modal', ['purchase' => $purchase]) --}}
                                     {{-- ⬆️⬆️⬆️⬆️⬆️⬆️ Modal ⬆️⬆️⬆️⬆️⬆️⬆️ --}}
                                 </div>
                             </td>

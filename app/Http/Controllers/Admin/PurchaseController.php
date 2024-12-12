@@ -20,7 +20,8 @@ class PurchaseController extends Controller
     public function index()
     {
         $purchases = auth()->user()->restaurant->purchases()->orderBy('date', 'desc')->paginate(8);
-        return view('admin.purchases.index', compact('purchases'));
+        $orderCount = auth()->user()->restaurant->purchases()->count();
+        return view('admin.purchases.index', compact('purchases', 'orderCount'));
     }
 
     /**
