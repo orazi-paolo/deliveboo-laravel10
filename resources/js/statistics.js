@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
             labels: labels,
             datasets: [
                 {
-                    label: 'Numero di Ordini',
+                    label: 'Numbers of Orders',
                     data: ordersCount,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
                 },
                 {
-                    label: 'Vendite Totali (€)',
+                    label: 'Total Sales (€)',
                     data: totalSales,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
@@ -30,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         options: {
+            responsive: true,
             scales: {
                 y: {
-                    type: 'logarithmic', // Imposta l'asse logaritmico
-                    beginAtZero: true,   // Mostra l'origine
+                    type: 'logarithmic',
+                    beginAtZero: true,
                     ticks: {
                         callback: function(value) {
-                            return Number(value).toLocaleString(); // Formattazione dei valori
+                            return Number(value).toLocaleString();
                 }
             }
         }
