@@ -80,12 +80,12 @@
                                         class="btn btn-sm btn-turquoise">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
-                                    <button class="btn btn-sm btn-turquoise" type="button" data-bs-toggle="modal"
+                                    {{-- <button class="btn btn-sm btn-turquoise" type="button" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop-{{ $purchase->id }}">
                                         <i class="bi bi-trash"></i>
-                                    </button>
+                                    </button> --}}
                                     {{-- ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ Modal ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ --}}
-                                    @include('partials.delete-modal', ['purchase' => $purchase])
+                                    {{-- @include('partials.delete-modal', ['purchase' => $purchase]) --}}
                                     {{-- ⬆️⬆️⬆️⬆️⬆️⬆️ Modal ⬆️⬆️⬆️⬆️⬆️⬆️ --}}
                                 </div>
                             </td>
