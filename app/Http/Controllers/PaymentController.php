@@ -74,6 +74,8 @@ class PaymentController extends Controller
             }
             $purchase->plates()->attach($plates);
 
+            $purchase->load('plates');
+
             return response()->json([
                 'success' => true,
                 'message' => 'Pagamento avvenuto con successo!',
