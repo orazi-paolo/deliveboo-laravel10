@@ -24,7 +24,7 @@ class PurchaseFactory extends Factory
             "phone_number" => fake()->phoneNumber(),
             "address" => fake()->streetAddress(),
             "city" => fake()->city(),
-            "date" => fake()->dateTimeBetween("-1 month", "now"),
+            "date" => fake()->dateTimeBetween("-1 year", "now"),
             "total" => fake()->randomFloat(2, 10, 100),
         ];
     }
