@@ -20,21 +20,13 @@
                         <th scope="col">
                             <span class="turquoise">Name</span>
                         </th>
-                        <th scope="col" class="d-none d-lg-table-cell">
-                            <p class="d-none d-lg-block turquoise p-0 m-0">Email</p>
-                            <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
-                                Email</p>
-                        </th>
-                        <th scope="col" class="d-none d-lg-table-cell">
-                            <p class="d-none d-lg-block turquoise p-0 m-0">Phone</p>
-                            <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
-                                Phone Number</p>
-                        </th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Email</span></th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Phone</span></th>
                         <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Address</span></th>
                         <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">City</span></th>
                         <th scope="col"><span class="turquoise">Date</span></th>
                         <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Total</span></th>
-                        <th scope="col"><span class="turquoise">Action</span></th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Action</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,7 +52,7 @@
                                 </p>
                             </td>
                             {{-- Address --}}
-                            <td>
+                            <td class="d-none d-lg-table-cell">
                                 <p class="m-0">{{ $purchase->address }}</p>
                             </td>
                             {{-- City --}}
@@ -70,7 +62,7 @@
                             {{-- Total --}}
                             <td class="d-none d-lg-table-cell">{{ $purchase->total }}&euro;</td>
                             {{-- Actions --}}
-                            <td>
+                            <td >
                                 <div class="d-flex gap-1">
                                     <a href="{{ route('admin.purchases.show', $purchase) }}"
                                         class="btn btn-sm btn-turquoise">
