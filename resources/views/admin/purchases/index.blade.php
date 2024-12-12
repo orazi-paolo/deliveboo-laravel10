@@ -30,12 +30,8 @@
                             <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
                                 Phone Number</p>
                         </th>
-                        <th scope="col"><span class="turquoise">Address</span></th>
-                        <th scope="col" class="d-none d-lg-table-cell">
-                            <p class="d-none d-lg-block turquoise p-0 m-0">City</p>
-                            <p class="d-lg-none text-truncate turquoise p-0 m-0" style="max-width: 50px;">
-                                City</p>
-                        </th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Address</span></th>
+                        <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">City</span></th>
                         <th scope="col"><span class="turquoise">Date</span></th>
                         <th scope="col" class="d-none d-lg-table-cell"><span class="turquoise">Total</span></th>
                         <th scope="col"><span class="turquoise">Action</span></th>
