@@ -40,7 +40,7 @@ class PaymentMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Payment Mail: $this->customer has made a new purchase"
+            subject: "Purchase Order: $this->customer has made a new purchase"
         );
     }
 

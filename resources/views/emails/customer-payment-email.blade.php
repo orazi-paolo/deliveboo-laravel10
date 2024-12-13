@@ -24,10 +24,7 @@
                                                 justify-content:space-between;
                                                 align-items:center">
 
-            <img src="https://cdn.iconscout.com/icon/free/png-256/free-deliveroo-logo-icon-download-in-svg-png-gif-file-formats--industry-company-brand-pack-logos-icons-2875354.png?f=webp&w=256"
-                alt="deliveboo-logo" style="height: 50px; width: 50px">
-
-            <h1 style="color: rgb(3,203,187)">DeliveBoo</h1>
+            <h1 style="color: rgb(3,203,187)">{{$restaurantName}}</h1>
         </a>
         <a href="http://localhost:5173/" style="text-decoration: none; color: rgb(3,203,187)">Get Help</a>
     </header>
@@ -69,11 +66,11 @@
     <footer style="height: 70px;
                        padding: 5px 10px;
                        background-image:url('https://img.freepik.com/premium-photo/clay-dishes-plate-top-view-free-space-your-text_187166-10574.jpg?semt=ais_hybrid');
-                       background-position: center;
+                       background-position: bottom;
                        background-size:cover;
                        ">
 
-        <p style="color: white; font-size:12px">DeliveBoo is a service of delivery. © 2024 DELIVEBOO ITALY SRL.</p>
+        <p style="color: white; font-size:12px"> © 2020 {{$restaurantName}}.</p>
     </footer>
 </body>
 
