@@ -70,7 +70,7 @@ class PaymentController extends Controller
             ]);
             $plates = [];
             foreach($request->plates as $plate) {
-                $plates[$plate['id']] = ['quantity' => $plate['quantity']];
+                $plates[$plate['id']] = ['quantity' => $plate['quantity'], 'price' => $plate['price'], ];
             }
             $purchase->plates()->attach($plates);
 
