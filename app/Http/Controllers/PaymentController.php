@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CustomerPaymentMail;
+use App\Mail\PaymentMail;
 use App\Models\Purchase;
+use App\Models\Restaurant;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
+use Database\Seeders\PurchaseSeeder;
 use DateTime;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -73,6 +79,18 @@ class PaymentController extends Controller
                 $plates[$plate['id']] = ['quantity' => $plate['quantity']];
             }
             $purchase->plates()->attach($plates);
+
+
+
+            $user = User::findOrFail($request->restaurant_id); // Get the user where the customer made a purchase
+            $orderId = User::findOrFail($request->restaurant_id); // Get the user where the customer made a purchase
+            Mail::to([$user->email])->send(new PaymentMail($request->name, $request->address, $orderId->id, $request->total, $request->plates, $user->name)); // Send success payment email
+            Mail::to([$request->email])->send(new CustomerPaymentMail($request->name, $request->address, $orderId->id, $request->total, $request->plates, $user->name)); // Send success payment email
+
+
+
+
+
 
             return response()->json([
                 'success' => true,
