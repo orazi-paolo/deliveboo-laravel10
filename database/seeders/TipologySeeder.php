@@ -30,42 +30,42 @@ class TipologySeeder extends Seeder
                 "color" => "#D2691E"
             ],
             [
-                "name" => "Italian Cuisine",
+                "name" => "Italian",
                 "image" => "https://images.pexels.com/photos/803963/pexels-photo-803963.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "color" => "#FF8C00"
             ],
             [
-                "name" => "Chinese Cuisine",
+                "name" => "Chinese",
                 "image" => "https://images.pexels.com/photos/955137/pexels-photo-955137.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "color" => "#483D8B"
             ],
             [
-                "name" => "Indian Cuisine",
+                "name" => "Indian",
                 "image" => "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "color" => "#E9967A"
             ],
             [
-                "name" => "Japanese Cuisine",
+                "name" => "Japanese",
                 "image" => "https://images.pexels.com/photos/1833349/pexels-photo-1833349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "color" => "#2F4F4F"
             ],
             [
-                "name" => "Mexican Cuisine",
+                "name" => "Mexican",
                 "image" => "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "color" => "#228B22"
             ],
             [
-                "name" => "Mediterranean Cuisine",
+                "name" => "Mediterranean",
                 "image" => "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "color" => "#696969"
             ],
             [
-                "name" => "Vegetarian Cuisine",
+                "name" => "Vegetarian",
                 "image" => "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "color" => "#2E8B57"
             ],
             [
-                "name" => "Vegan Cuisine",
+                "name" => "Vegan",
                 "image" => "https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "color" => "#9ACD32"
             ],
