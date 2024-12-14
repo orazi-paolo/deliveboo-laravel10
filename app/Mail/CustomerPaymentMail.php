@@ -20,12 +20,13 @@ class CustomerPaymentMail extends Mailable
     public $totalPrice;
     public $itemsOrderedList = [];
     public $restaurantName;
+    public $userEmail;
     public $pdf;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($customer, $customerAddress, $orderId, $totalPrice, $itemsOrderedList,$restaurantName, $pdf)
+    public function __construct($customer, $customerAddress, $orderId, $totalPrice, $itemsOrderedList,$restaurantName,$userEmail, $pdf)
     {
         $this->customer = $customer;
         $this->customerAddress = $customerAddress;
@@ -33,6 +34,7 @@ class CustomerPaymentMail extends Mailable
         $this->totalPrice = $totalPrice;
         $this->itemsOrderedList = $itemsOrderedList;
         $this->restaurantName = $restaurantName;
+        $this->userEmail = $userEmail;
         $this->pdf = $pdf;
     }
 
@@ -63,7 +65,7 @@ class CustomerPaymentMail extends Mailable
      */
     public function build()
     {
-        return $this->from('no-reply@deliveboo.com')  // Sender Address
+        return $this->from($this->userEmail)  // Sender Address
                     ->with([
                         $this->customer,
                         $this->customerAddress,

@@ -99,7 +99,7 @@ class PaymentController extends Controller
 
             $pdf = Pdf::loadView('invoices/customer-invoice', $data); // Generate pdf and pass $data as argument
             Mail::to([$user->email])->send(new PaymentMail($request->name, $request->address, $request->restaurant_id, $request->total, $request->plates, $restaurant->name)); // Send success payment email
-            Mail::to([$request->email])->send(new CustomerPaymentMail($request->name, $request->address, $request->restaurant_id, $request->total, $request->plates, $restaurant->name, $pdf)); // Send success payment email
+            Mail::to([$request->email])->send(new CustomerPaymentMail($request->name, $request->address, $request->restaurant_id, $request->total, $request->plates, $restaurant->name,$user->email, $pdf)); // Send success payment email
 
 
 
