@@ -35,6 +35,10 @@
             padding: 10px 0;
         }
 
+        address {
+            margin-bottom: 50px;
+        }
+
         .address {
             display: flex;
             justify-content: space-between;
@@ -50,6 +54,33 @@
             border: 1px solid lightgray;
             border-radius: 4px
         }
+
+        table {
+            font-family: arial, sans-serif;
+            width: 100%;
+        }
+
+        td {
+            border-bottom: 1px solid lightgray;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th {
+            background-color: rgb(3, 203, 187);
+            text-align: center;
+            padding: 8px;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .total-price {
+            text-align: center;
+            font-style: italic;
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -58,27 +89,48 @@
         <h3 class="header-title">Invoice</h3>
     </header>
     <main>
-        <address class="address">
-            <div class="business-address">
-                <p>From:</p>
-                <p>Restaurant Name</p>
-                <p>Address</p>
+        <address>
+            <div class="address">
+                <div class="business-address">
+                    <h4>From:</h4>
+                    <p>Restaurant Name</p>
+                    <p>Address</p>
+                </div>
+                <div class="business-logo">
+                    logo
+                </div>
             </div>
-            <div class="business-logo">
-                logo
+            <div class="address">
+                <div class="business-address">
+                    <h4>Bill to:</h4>
+                    <p>Customer Name</p>
+                    <p>Address</p>
+                </div>
+                <div class="bill-details">
+                    <p>Bill nr: #</p>
+                    <p>Order date: </p>
+                </div>
             </div>
         </address>
-        <address class="address">
-            <div class="business-address">
-                <p>Bill to:</p>
-                <p>Customer Name</p>
-                <p>Address</p>
-            </div>
-            <div class="bill-details">
-                <p>Bill nr: #</p>
-                <p>Order date: </p>
-            </div>
-        </address>
+        <div class="order">
+            <table>
+                <tr>
+                    <th>Item title</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>plate name</td>
+                    <td>5</td>
+                    <td>50 €</td>
+                </tr>
+                <tr>
+                    <th class="hidden"></th>
+                    <th class="hidden"></th>
+                    <th class="total-price">Total: 50 €</th>
+                </tr>
+            </table>
+        </div>
     </main>
 </body>
 
