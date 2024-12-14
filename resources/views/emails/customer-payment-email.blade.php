@@ -50,6 +50,8 @@
         </ul> --}}
         <p>- Total Amount: <span style="font-weight: bold">{{$totalPrice}} €</span></p>
 
+        <p>In the attachments above, you will find your invoice for the transaction.</p>
+
         <p>Your order is being prepared and will be delivered to your address shortly. You will receive an update once
             it’s
             on
