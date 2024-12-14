@@ -23,12 +23,12 @@ class PlateController extends Controller
     /**
      * Display a listing of the deleted resources.
      */
-    public function deletedIndex()
-    {
-        $plates = auth()->user()->restaurant->plates()->onlyTrashed()->paginate(8);
+    // public function deletedIndex()
+    // {
+    //     $plates = auth()->user()->restaurant->plates()->onlyTrashed()->paginate(8);
 
-        return view("admin.plates.trash.index", compact("plates"));
-    }
+    //     return view("admin.plates.trash.index", compact("plates"));
+    // }
 
     /**
      * Retore the deleted resources.

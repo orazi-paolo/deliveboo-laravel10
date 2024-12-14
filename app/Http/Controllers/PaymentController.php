@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Mail\CustomerPaymentMail;
 use App\Mail\PaymentMail;
 use App\Models\Purchase;
-use App\Models\Restaurant;
 use App\Models\User;
-use Barryvdh\DomPDF\Facade as PDF;
-use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
 use DateTime;
@@ -82,10 +80,11 @@ class PaymentController extends Controller
             $purchase->plates()->attach($plates);
 
             // Payment mails
-
-            $pdf = FacadePdf::loadView('invoices/customer-invoice'); // Generate pdf
             $user = User::findOrFail($request->restaurant_id); // Get the user where the customer made a purchase
             $orderId = User::findOrFail($request->restaurant_id); // Get the user where the customer made a purchase
+            $data = ['nr'=>'15'];
+
+            $pdf = Pdf::loadView('invoices/customer-invoice', $data); // Generate pdf and pass $data as argument
             Mail::to([$user->email])->send(new PaymentMail($request->name, $request->address, $orderId->id, $request->total, $request->plates, $user->name)); // Send success payment email
             Mail::to([$request->email])->send(new CustomerPaymentMail($request->name, $request->address, $orderId->id, $request->total, $request->plates, $user->name, $pdf)); // Send success payment email
 
