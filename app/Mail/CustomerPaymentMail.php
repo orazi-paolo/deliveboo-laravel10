@@ -20,11 +20,12 @@ class CustomerPaymentMail extends Mailable
     public $totalPrice;
     public $itemsOrderedList = [];
     public $restaurantName;
+    public $pdf;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($customer, $customerAddress, $orderId, $totalPrice, $itemsOrderedList,$restaurantName)
+    public function __construct($customer, $customerAddress, $orderId, $totalPrice, $itemsOrderedList,$restaurantName, $pdf)
     {
         $this->customer = $customer;
         $this->customerAddress = $customerAddress;
@@ -32,6 +33,7 @@ class CustomerPaymentMail extends Mailable
         $this->totalPrice = $totalPrice;
         $this->itemsOrderedList = $itemsOrderedList;
         $this->restaurantName = $restaurantName;
+        $this->pdf = $pdf;
     }
 
     /**
@@ -69,7 +71,11 @@ class CustomerPaymentMail extends Mailable
                         $this->totalPrice ,
                         // $this->itemsOrderedList, // Store the items as array
                         $this->restaurantName ,
+                    ])
+                    ->attachData($this->pdf->output(), 'invoice.pdf', [
+                        'mime' => 'application/pdf',
                     ]);
+                    ;
 
     }
 
@@ -80,6 +86,7 @@ class CustomerPaymentMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+        ];
     }
 }
