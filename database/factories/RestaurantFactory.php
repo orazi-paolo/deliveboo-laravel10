@@ -33,7 +33,7 @@ class RestaurantFactory extends Factory
         $userIds = User::all()->pluck("id");
         return [
             "user_id" => fake()->unique()->randomElement($userIds),
-            "name" => fake()->company(),
+            "name" => fake()->unique()->company(),
             "description" => fake()->paragraph(),
             "address" => fake()->streetAddress(),
             "city" => fake()->city(),
