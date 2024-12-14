@@ -112,8 +112,8 @@
             <div class="address">
                 <div class="business-address">
                     <h4>From:</h4>
-                    <p>Restaurant Name</p>
-                    <p>Address</p>
+                    <p>{{$restaurantName}}</p>
+                    <p>{{$restaurantAddress}}</p>
                 </div>
                 <div class="business-logo">
                     <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png"
@@ -123,12 +123,12 @@
             <div class="address">
                 <div class="bill-address">
                     <h4>Bill to:</h4>
-                    <p>Customer Name</p>
-                    <p>Address</p>
+                    <p>{{$customerName}}</p>
+                    <p>{{$customerAddress}}</p>
                 </div>
                 <div class="bill-details">
-                    <p>Bill nr: #{{ $nr }}</p>
-                    <p>Order date: </p>
+                    <p>Bill nr: #{{ $billNr }}</p>
+                    <p>Order date: {{$currentTime}}</p>
                 </div>
             </div>
         </address>
@@ -139,15 +139,17 @@
                     <th>Quantity</th>
                     <th>Price</th>
                 </tr>
+                @foreach ($items as $item)
                 <tr>
-                    <td>plate name</td>
-                    <td>5</td>
-                    <td>50 €</td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->pivot->quantity}}</td>
+                    <td>{{$item->pivot->quantity * $item->price}} €</td>
                 </tr>
+                @endforeach
                 <tr>
                     <th class="hidden"></th>
                     <th class="hidden"></th>
-                    <th class="total-price">Total: 50 €</th>
+                    <th class="total-price">{{$totalPrice}} €</th>
                 </tr>
             </table>
             <footer>
