@@ -81,6 +81,11 @@
             font-style: italic;
             padding: 10px;
         }
+
+        footer {
+            font-weight: bold;
+            margin-top: 50px;
+        }
     </style>
 </head>
 
@@ -130,6 +135,10 @@
                     <th class="total-price">Total: 50 €</th>
                 </tr>
             </table>
+            <footer>
+                <p>Thank you for your purchase. We appreciate your trust in us and look forward to serving you again.
+                </p>
+            </footer>
         </div>
     </main>
 </body>
