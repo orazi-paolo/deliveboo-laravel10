@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Invoice</title>
+    {{-- CSS style --}}
     <style>
+        /* Generics */
         img {
             max-width: 100%;
         }
+
+        /* utils */
 
         .invoice-header {
             height: 100px;
@@ -55,13 +59,12 @@
         }
 
         .business-logo {
+            display: inline-block;
+            float: right;
             width: 70px;
             height: 70px;
             border: 1px solid lightgray;
             border-radius: 4px;
-
-            float: right;
-            display: inline-block;
         }
 
         .bill-details {
@@ -117,7 +120,12 @@
                 </div>
                 <div class="business-logo">
                     <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png"
-                        alt="logo placeholder">
+                        alt="Logo placeholder">
+                    {{-- @if ($restaurantImg)
+                    <img src="{{$restaurantImg}}" alt="{{$restaurantName}} logo" class="logo">
+                    @else
+                    <img src="{{$restaurantImgPlaceholder}}" alt="{{$restaurantName}} logo" class="logo">
+                    @endif --}}
                 </div>
             </div>
             <div class="address">
@@ -127,7 +135,7 @@
                     <p>{{$customerAddress}}</p>
                 </div>
                 <div class="bill-details">
-                    <p>Bill nr: #{{ $billNr }}</p>
+                    <p>Bill nr: # {{ $billNr }}</p>
                     <p>Order date: {{$currentTime}}</p>
                 </div>
             </div>

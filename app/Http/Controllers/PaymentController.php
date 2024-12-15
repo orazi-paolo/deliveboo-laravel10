@@ -89,6 +89,8 @@ class PaymentController extends Controller
             $data = [
                 'restaurantName' => $restaurant->name,
                 'restaurantAddress' => $restaurant->address,
+                'restaurantImg' => $restaurant->image,
+                'restaurantImgPlaceholder' => $restaurant->image_placeholder,
                 'customerName' => $request->name,
                 'customerAddress' => $request->address,
                 'billNr'=> $request->restaurant_id,
