@@ -31,6 +31,7 @@ Route::prefix("plates")->name("api.plates.")->group(function () {
 Route::prefix("restaurant")->name("api.restaurants.")->group(function () {
     Route::get('/', [RestaurantController::class, 'index'])->name('index');
     Route::get('/filter', [RestaurantController::class, 'filterByTipologies'])->name('filter');
+    Route::get('/filter/pagination', [RestaurantController::class, 'filterByTipologiesWithPagination'])->name('filter.pagination');
     Route::get('/{slug}', [RestaurantController::class, 'show'])->name('show');
 });
 // Tipology API resources
