@@ -51,10 +51,7 @@ class RestaurantController extends Controller
             "success" => true,
             "results" => $restaurants,
             "meta" => [
-                "current_page" => $restaurants->currentPage(),
-                "last_page" => $restaurants->lastPage(),
-                "per_page" => $restaurants->perPage(),
-                "total" => $restaurants->total()
+                "total" => Restaurant::count()
             ]
         ]);
     }
