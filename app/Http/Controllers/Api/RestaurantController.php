@@ -44,7 +44,7 @@ class RestaurantController extends Controller
             })->with('plates', 'tipologies')->get();
         } else {
             // Se non è fornito alcun filtro, restituiamo tutti i ristoranti
-            $restaurants = Restaurant::with('plates', 'tipologies')->paginate(8);
+            $restaurants = Restaurant::with('plates', 'tipologies')->paginate(12);
         }
 
         return response()->json([
@@ -66,10 +66,10 @@ class RestaurantController extends Controller
             // Filtriamo i ristoranti in base agli IDs delle tipologie
             $restaurants = Restaurant::whereHas('tipologies', function ($query) use ($tipologyIdsArray) {
                 $query->whereIn('id', $tipologyIdsArray); // Utilizziamo whereIn() per filtrare ristoranti con ALMENO UNA delle tipologie specificate
-            })->with('plates', 'tipologies')->paginate(8);
+            })->with('plates', 'tipologies')->paginate(12);
         } else {
             // Se non è fornito alcun filtro, restituiamo tutti i ristoranti
-            $restaurants = Restaurant::with('plates', 'tipologies')->paginate(8);
+            $restaurants = Restaurant::with('plates', 'tipologies')->paginate(12);
         }
 
         return response()->json([
