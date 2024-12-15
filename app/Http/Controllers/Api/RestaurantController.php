@@ -49,7 +49,13 @@ class RestaurantController extends Controller
 
         return response()->json([
             "success" => true,
-            "results" => $restaurants
+            "results" => $restaurants,
+            "meta" => [
+                "current_page" => $restaurants->currentPage(),
+                "last_page" => $restaurants->lastPage(),
+                "per_page" => $restaurants->perPage(),
+                "total" => $restaurants->total()
+            ]
         ]);
     }
 
@@ -74,7 +80,13 @@ class RestaurantController extends Controller
 
         return response()->json([
             "success" => true,
-            "results" => $restaurants
+            "results" => $restaurants,
+            "meta" => [
+                "current_page" => $restaurants->currentPage(),
+                "last_page" => $restaurants->lastPage(),
+                "per_page" => $restaurants->perPage(),
+                "total" => $restaurants->total()
+            ]
         ]);
     }
 }
