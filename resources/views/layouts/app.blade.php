@@ -31,7 +31,7 @@
                 <a class="navbar-brand turquoise fw-bold" href="{{ url('/home') }}">
                     deliveboo
                 </a>
-                <a class="navbar-brand fs-6 turquoise" href="http://localhost:5174/">
+                <a class="navbar-brand fs-6 turquoise" href="http://localhost:5173/">
                     Home
                 </a>
 

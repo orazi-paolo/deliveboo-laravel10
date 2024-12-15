@@ -8,7 +8,8 @@ use App\Mail\PaymentMail;
 use App\Models\Purchase;
 use App\Models\Restaurant;
 use App\Models\User;
-use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
+// use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
 use Illuminate\Support\Facades\Mail;
@@ -59,7 +60,7 @@ class PaymentController extends Controller
             'options' => ['submitForSettlement' => true],
             'customer' => [
                 'firstName' => $request->input('name'),
-                ],
+            ],
         ]);
 
 
@@ -75,7 +76,7 @@ class PaymentController extends Controller
                 'date' => now(),
             ]);
             $plates = [];
-            foreach($request->plates as $plate) {
+            foreach ($request->plates as $plate) {
                 $plates[$plate['id']] = ['quantity' => $plate['quantity']];
             }
             $purchase->plates()->attach($plates);
@@ -93,7 +94,7 @@ class PaymentController extends Controller
                 'restaurantImgPlaceholder' => $restaurant->image_placeholder,
                 'customerName' => $request->name,
                 'customerAddress' => $request->address,
-                'billNr'=> $request->restaurant_id,
+                'billNr' => $request->restaurant_id,
                 'currentTime' => $currentDateTime,
                 'totalPrice' => $request->total,
                 'items' => $purchase->plates,
@@ -101,8 +102,7 @@ class PaymentController extends Controller
 
             $pdf = Pdf::loadView('invoices/customer-invoice', $data); // Generate pdf and pass $data as argument
             Mail::to([$user->email])->send(new PaymentMail($request->name, $request->address, $request->restaurant_id, $request->total, $request->plates, $restaurant->name)); // Send success payment email
-            Mail::to([$request->email])->send(new CustomerPaymentMail($request->name, $request->address, $request->restaurant_id, $request->total, $request->plates, $restaurant->name,$user->email, $pdf)); // Send success payment email
-
+            Mail::to([$request->email])->send(new CustomerPaymentMail($request->name, $request->address, $request->restaurant_id, $request->total, $request->plates, $restaurant->name, $user->email, $pdf)); // Send success payment email
 
 
 
