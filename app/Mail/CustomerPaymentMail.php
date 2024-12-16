@@ -77,7 +77,6 @@ class CustomerPaymentMail extends Mailable
                     ->attachData($this->pdf->output(), 'invoice.pdf', [
                         'mime' => 'application/pdf',
                     ]);
-                    ;
 
     }
 
