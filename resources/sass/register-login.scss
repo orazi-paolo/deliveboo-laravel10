@@ -64,6 +64,17 @@ input:focus+.input-instruction {
     color: $turquoise !important;
 }
 
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-color: #f8d7da;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
 
 @media (max-width: 768px) {
     .login-m {
