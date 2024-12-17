@@ -26,7 +26,7 @@ class RegisterAdvanceRequest extends FormRequest
             'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])/',
             'name' => 'required|string',
             'address' => 'required|string|max:255',
-            'VAT' => 'required|regex:/^[A-Z0-9]{11}$/|unique:restaurants,VAT',
+            'VAT' => 'required|regex:/^[A-Z0-9]{13}$/|unique:restaurants,VAT',
             'tipologies' => 'required|array|min:1',
             'tipologies.*' => 'exists:tipologies,id',
             'city' => 'required|string|max:255',

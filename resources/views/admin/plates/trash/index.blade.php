@@ -1,1 +1,1 @@
-@extends('admin.plates.layouts.index-or-trash')
+{{-- @extends('admin.plates.layouts.index-or-trash') --}}
