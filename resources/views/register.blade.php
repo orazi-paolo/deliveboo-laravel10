@@ -71,7 +71,7 @@
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('address') is-invalid @enderror"
                                     id="address" name="address" value="{{ old('address') }}"
-                                    placeholder="e.g., Via Roma 123, 00100 Roma RM" required>
+                                    placeholder="e.g., Via Roma 123, Roma" required>
                                 {{-- Error Messages --}}
                                 @error('address')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -99,8 +99,8 @@
                                     autocomplete="off" required>
                                 {{-- Instruction Messages --}}
                                 @include('partials.input-instruction', ['instructionMessages' => [
-                                "Enter a valid VAT number consisting of exactly 11 characters.",
-                                "Ensure the VAT number is in uppercase letters and/or digits (e.g., 'IT123456789').",
+                                "Enter a valid VAT number consisting of exactly 13 characters.",
+                                "Ensure the VAT number is in uppercase letters and/or digits (e.g., 'IT12345678901').",
                                 "The format should not include any spaces, dashes, or special characters."
                                 ],])
                                 {{-- Error Messages --}}
@@ -181,4 +181,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('add-script')
+@vite('resources/js/front-side-errors.js')
 @endsection
