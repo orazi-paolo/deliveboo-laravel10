@@ -17,9 +17,10 @@
 
         .invoice-header {
             height: 100px;
-            background-image: url('https://image.slidesdocs.com/responsive-images/background/burger-food-restaurant-powerpoint-background_b120f0b497__960_540.jpg');
+            background-color: rgb(3, 203, 187);
+            /* background-image: url('https://image.slidesdocs.com/responsive-images/background/burger-food-restaurant-powerpoint-background_b120f0b497__960_540.jpg');
             background-position: center;
-            background-size: cover;
+            background-size: cover; */
             position: relative;
             margin-bottom: 20px;
         }
@@ -119,8 +120,9 @@
                     <p>{{$restaurantAddress}}</p>
                 </div>
                 <div class="business-logo">
-                    <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png"
-                        alt="Logo placeholder">
+                    Logo
+                    {{-- <img src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png"
+                        alt="Logo placeholder"> --}}
                     {{-- @if ($restaurantImg)
                     <img src="{{$restaurantImg}}" alt="{{$restaurantName}} logo" class="logo">
                     @else
