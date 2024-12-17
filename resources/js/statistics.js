@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 title: {
                     display: true,
-                    text: 'Total Sales',
+                    text: 'Total Sales (€)',
                     color: '#00CDBC',
                     font: {
                         size: 18
