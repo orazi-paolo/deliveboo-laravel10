@@ -37,6 +37,10 @@ img {
     color: $turquoise;
 }
 
+.border-turquoise {
+    border: 3px solid $turquoise !important;
+}
+
 .nav-link.border.turquoise:hover {
     color: $turquoise;
     border-color: #999999 !important;
