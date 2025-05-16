@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Plate;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreOrUpdatePlateRequest;
-use App\Models\Restaurant;
 
-use function Laravel\Prompts\error;
 
 class PlateController extends Controller
 {
